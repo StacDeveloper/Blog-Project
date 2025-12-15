@@ -7,7 +7,7 @@ dotenv.config()
 const app = express()
 
 const PORT = process.env.PORT
-
+app.use(express.json())
 app.use("/api/blog", blogRouter)
 
 app.listen(PORT, () => {
