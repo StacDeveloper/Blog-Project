@@ -16,7 +16,7 @@ export const getAllBlogs = TryCatch(async (req, res) => {
     const cacheData = await redisClient.get<string>(cacheKey)
     if (cacheData) {
         console.log("Serving from redis cache")
-        const parsedData = typeof cacheData ==="string" ? JSON.parse(cacheData) : cacheData
+        const parsedData = typeof cacheData === "string" ? JSON.parse(cacheData) : cacheData
         res.json(parsedData)
         return
     }
@@ -31,9 +31,9 @@ export const getAllBlogs = TryCatch(async (req, res) => {
         console.log("else if query has runned" + searchQuery)
         const pattern = `%${searchQuery}%`
         blogs = await pgsql`SELECT * FROM blogs WHERE (title ILIKE ${pattern} OR description ILIKE ${pattern}) ORDER BY created_at DESC`
-    } else if(category){
-        const pattern=`%${category}%`
-        blogs=await pgsql`SELECT * FROM blogs WHERE (category ILIKE ${pattern}) ORDER BY create_at DESC `
+    } else if (category) {
+        const pattern = `%${category}%`
+        blogs = await pgsql`SELECT * FROM blogs WHERE (category ILIKE ${pattern}) ORDER BY created_at DESC `
     } else {
         console.log("else query runn")
         blogs = await pgsql`SELECT * FROM blogs ORDER BY created_at DESC`
@@ -47,7 +47,25 @@ export const getAllBlogs = TryCatch(async (req, res) => {
 })
 
 export const getSingleBlogs = TryCatch(async (req, res) => {
-    const blog = await pgsql`SELECT * FROM blogs WHERE id=${req.params.id}`
+    const blogid = req.params.id
+    const cacheKey = `blog:${blogid}`
+    const cacheData = await redisClient.get(cacheKey)
+    if (cacheData) {
+        console.log("serving from redis cache")
+        const parsedData = typeof cacheData === "string" ? JSON.parse(cacheData) : cacheData
+        res.json({ success: true, blogs: parsedData })
+        console.log("serving from redis")
+        return
+    }
+    const blog = await pgsql`SELECT * FROM blogs WHERE id=${blogid}`
+    if (blog.length === 0) {
+        res.json({ success: true, message: "no blog available with this id" })
+        return
+    }
     const { data } = await axios.get(`${process.env.USER_SERVICE!}/api/user/users/${blog[0]!.author}`)
+    await redisClient.set(cacheKey, JSON.stringify(data),{
+        ex:3600
+    })
+    console.log("serving from pgdb")
     res.json({ success: true, blog: blog[0]!, author: data })
 })
