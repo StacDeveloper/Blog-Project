@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import connectDB from "./utils/db.js"
 import userRouter from "./routes/user.route.js"
 import cloudConfiguration from "./utils/cloudinary.js"
+import cors from "cors"
 
 dotenv.config()
 
@@ -10,6 +11,7 @@ const app = express()
 const PORT = process.env.PORT
 
 app.use(express.json())
+app.use(cors())
 
 await connectDB()
 await cloudConfiguration()
