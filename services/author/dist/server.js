@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import { pgsql } from "./utils/db.js";
 import authRouter from "./routes/blog.routes.js";
 import cloudConfiguration from "./utils/cloudinary.js";
+import { connectRabbitmq } from "./utils/rabbitmq.js";
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT;
@@ -45,6 +46,7 @@ async function initDB() {
     }
 }
 await cloudConfiguration();
+await connectRabbitmq();
 app.use("/api/auth", authRouter);
 initDB().then(() => {
     app.listen(PORT, () => {

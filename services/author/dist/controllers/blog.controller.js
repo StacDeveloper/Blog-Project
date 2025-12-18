@@ -2,6 +2,7 @@ import TryCatch from "../utils/trycatch.js";
 import getBuffer from "../utils/datauri.js";
 import { v2 as cloudinary } from "cloudinary";
 import { pgsql } from "../utils/db.js";
+import { invalidateCacheJob } from "../utils/rabbitmq.js";
 export const createBlog = TryCatch(async (req, res) => {
     const { title, description, blogcontent, category } = req.body;
     const file = req.file;
@@ -18,6 +19,7 @@ export const createBlog = TryCatch(async (req, res) => {
         folder: "blogs"
     });
     const result = await pgsql `INSERT INTO blogs (title, description, image, blogcontent, category, author) VALUES (${title}, ${description}, ${cloud.secure_url}, ${blogcontent}, ${category}, ${req.user?._id}) RETURNING *`;
+    await invalidateCacheJob(["blogs:*"]);
     return res.json({ success: true, blog: result[0] });
 });
 export const updateBlog = TryCatch(async (req, res) => {

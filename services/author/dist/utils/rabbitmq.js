@@ -1,7 +1,5 @@
-import amqp from "amqplib"
-
-let channel: amqp.Channel
-
+import amqp from "amqplib";
+let channel;
 export const connectRabbitmq = async () => {
     try {
         const connection = await amqp.connect({
@@ -11,39 +9,39 @@ export const connectRabbitmq = async () => {
             username: "admin",
             password: "admin123"
         });
-        channel = await connection.createChannel()
-        console.log("Connected to rabbitmq")
-    } catch (error) {
-        console.log(error)
+        channel = await connection.createChannel();
+        console.log("Connected to rabbitmq");
     }
-}
-
-export const publishToQueue = async (queueName: string, message: any) => {
+    catch (error) {
+        console.log(error);
+    }
+};
+export const publishToQueue = async (queueName, message) => {
     try {
         if (!channel) {
-            console.error("Rabbitmq Channel is not initialized")
-            return
+            console.error("Rabbitmq Channel is not initialized");
+            return;
         }
-        await channel.assertQueue(queueName, { durable: true })
-        channel.sendToQueue(queueName, Buffer.from(JSON.stringify(message)), { persistent: true })
-    } catch (error) {
-        console.log("error from publishToQueue", error)
+        await channel.assertQueue(queueName, { durable: true });
+        channel.sendToQueue(queueName, Buffer.from(JSON.stringify(message)), { persistent: true });
     }
-}
-
-export const invalidateCacheJob = async (cacheKeys: string[]) => {
+    catch (error) {
+        console.log("error from publishToQueue", error);
+    }
+};
+export const invalidateCacheJob = async (cacheKeys) => {
     try {
         const message = {
             action: "invalidateCache",
             keys: cacheKeys
-        }
-        await publishToQueue("cache-invalidation", message)
-        console.log("cache invalidation job published ")
-    } catch (error) {
-        console.log("error from invalidateCachejOB", error)
+        };
+        await publishToQueue("cache-invalidation", message);
+        console.log("cache invalidation job published ");
     }
-}
-
+    catch (error) {
+        console.log("error from invalidateCachejOB", error);
+    }
+};
 // export const updateBlogs = async (queueName: string, keys: string[]) => {
 //     try {
 //         if (!channel) {
@@ -56,8 +54,8 @@ export const invalidateCacheJob = async (cacheKeys: string[]) => {
 //         }
 //         channel.assertQueue(queueName, { durable: true })
 //         channel.sendToQueue(queueName, Buffer.from(JSON.stringify(msg)))
-
 //     } catch (error) {
 //         console.error("error from update blogs", error)
 //     }
 // }
+//# sourceMappingURL=rabbitmq.js.map
