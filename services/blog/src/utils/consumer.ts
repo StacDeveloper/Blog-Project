@@ -2,6 +2,7 @@ import amqp from "amqplib"
 import { redisClient } from "./redis.js";
 import { pgsql } from "./db.js";
 
+
 interface cacheInvalidationMessage {
     action: string,
     keys: string[]
@@ -9,7 +10,7 @@ interface cacheInvalidationMessage {
 
 export const startCacheConsumer = async () => {
     try {
-        let channel : amqp.Channel
+        let channel: amqp.Channel
         const connection = await amqp.connect({
             protocol: "amqp",
             hostname: "localhost",
@@ -31,7 +32,7 @@ export const startCacheConsumer = async () => {
                         for (const pattern of content.keys) {
                             const keys = await redisClient.keys(pattern)
                             if (keys.length > 0) {
-                                await redisClient.del(keys)
+                                await redisClient.del(JSON.stringify(keys))
                                 console.log(`keys been deleted ${keys}`)
                                 const category = ""
                                 const searchQuery = ""

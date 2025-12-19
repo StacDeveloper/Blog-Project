@@ -24,7 +24,7 @@ export const startCacheConsumer = async () => {
                         for (const pattern of content.keys) {
                             const keys = await redisClient.keys(pattern);
                             if (keys.length > 0) {
-                                await redisClient.del(keys);
+                                await redisClient.del(JSON.stringify(keys));
                                 console.log(`keys been deleted ${keys}`);
                                 const category = "";
                                 const searchQuery = "";

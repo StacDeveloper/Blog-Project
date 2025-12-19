@@ -75,6 +75,7 @@ export const updateBlog = TryCatch(async (req: AuthenticateReq, res: Response) =
         WHERE id= ${id}
         RETURNING *
         `;
+        await invalidateCacheJob(["blogs:*", `blog:${id}`])
         res.json({ success: true, blog: updatedBlog[0] })
     }
 
@@ -93,7 +94,8 @@ export const deleteblog = TryCatch(async (req: AuthenticateReq, res: Response) =
     await pgsql`DELETE FROM saveblogs WHERE blogid=${req.params.id}`
     await pgsql`DELETE FROM comments WHERE blogid=${req.params.id}`
     await pgsql`DELETE FROM blogs WHERE id=${req.params.id}`
-
+    
+    await invalidateCacheJob(["blogs:*", `blog:${req.params.id}`])
     res.json({ success: true, message: "Blog deleted" })
 
 })

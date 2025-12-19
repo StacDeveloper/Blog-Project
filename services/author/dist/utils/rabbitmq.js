@@ -42,20 +42,4 @@ export const invalidateCacheJob = async (cacheKeys) => {
         console.log("error from invalidateCachejOB", error);
     }
 };
-// export const updateBlogs = async (queueName: string, keys: string[]) => {
-//     try {
-//         if (!channel) {
-//             console.error("no channel exist")
-//             return
-//         }
-//         const msg = {
-//             action: "update-blog",
-//             keys: keys
-//         }
-//         channel.assertQueue(queueName, { durable: true })
-//         channel.sendToQueue(queueName, Buffer.from(JSON.stringify(msg)))
-//     } catch (error) {
-//         console.error("error from update blogs", error)
-//     }
-// }
 //# sourceMappingURL=rabbitmq.js.map
