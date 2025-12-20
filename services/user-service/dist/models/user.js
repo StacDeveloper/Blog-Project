@@ -19,6 +19,9 @@ const userSchema = new Schema({
     facebook: {
         type: String
     },
+    linkedin: {
+        type: String
+    },
     bio: {
         type: String
     },
