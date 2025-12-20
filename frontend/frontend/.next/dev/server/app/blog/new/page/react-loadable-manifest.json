@@ -1,0 +1,10 @@
+{
+  "[project]/frontend/frontend/node_modules/jodit-react/build/jodit-react.js [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/frontend/frontend/node_modules/jodit-react/build/jodit-react.js [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/3b189_jodit-react_build_jodit-react_66016968.js",
+      "static/chunks/3b189_jodit-react_build_jodit-react_0310984e.js",
+      "static/chunks/3b189_jodit-react_build_jodit-react_8fc1a51c.js"
+    ]
+  }
+}

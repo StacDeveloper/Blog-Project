@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/user/Desktop/Blog%20Project/frontend/frontend/src/app/profile/page.tsx"],"sourcesContent":["\"use client\"\r\nimport { useAppData } from '@/context/appcontext'\r\nimport React from 'react'\r\n\r\nconst Profile: React.FC = () => {\r\n\r\n    const { user, setUser } = useAppData()\r\n\r\n    return (\r\n        <div className='flex justify-center items-center min-h-screen p-4'>\r\n            <Card/>\r\n        </div>\r\n    )\r\n}\r\n\r\nexport default Profile"],"names":[],"mappings":";;;;;AACA;AADA;;;AAIA,MAAM,UAAoB;IAEtB,MAAM,EAAE,IAAI,EAAE,OAAO,EAAE,GAAG,IAAA,mKAAU;IAEpC,qBACI,sQAAC;QAAI,WAAU;kBACX,cAAA,sQAAC;;;;;;;;;;AAGb;uCAEe"}}]
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/user/Desktop/Blog%20Project/frontend/frontend/src/components/ui/loading.tsx"],"sourcesContent":["import React from 'react'\r\n\r\nconst Loading = () => {\r\n  return (\r\n    <div  className='w-[200px] m-auto mt-[200px]'>\r\n        <p className='text-2xl text-blue-500 font-bold text-center'>Loading...</p>\r\n    </div>\r\n  )\r\n}\r\n\r\nexport default Loading"],"names":[],"mappings":";;;;;;AAEA,MAAM,UAAU;IACd,qBACE,sQAAC;QAAK,WAAU;kBACZ,cAAA,sQAAC;YAAE,WAAU;sBAA+C;;;;;;;;;;;AAGpE;uCAEe"}},
+    {"offset": {"line": 32, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/user/Desktop/Blog%20Project/frontend/frontend/src/app/page.tsx"],"sourcesContent":["\"use client\"\nimport React from 'react'\nimport { Button } from \"@/components/ui/button\"\nimport { useAppData } from '@/context/appcontext'\nimport Loading from '@/components/ui/loading'\nimport { redirect } from 'next/navigation'\nconst Home = () => {\n  const { loading, isAuth } = useAppData()\n  // if (!isAuth) {\n  //   redirect(\"/login\")\n  // }\n  return (\n    <div>\n      {loading ? <Loading /> : <Button>Click Me</Button>}\n    </div>\n  )\n}\n\nexport default Home"],"names":[],"mappings":";;;;;AAEA;AACA;AACA;AAJA;;;;;AAMA,MAAM,OAAO;IACX,MAAM,EAAE,OAAO,EAAE,MAAM,EAAE,GAAG,IAAA,mKAAU;IACtC,iBAAiB;IACjB,uBAAuB;IACvB,IAAI;IACJ,qBACE,sQAAC;kBACE,wBAAU,sQAAC,sKAAO;;;;qEAAM,sQAAC,oKAAM;sBAAC;;;;;;;;;;;AAGvC;uCAEe"}}]
+}
