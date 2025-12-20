@@ -3,14 +3,24 @@ import jwt, {} from "jsonwebtoken";
 import TryCatch from "../utils/trycatch.js";
 import getBuffer from "../utils/dataUri.js";
 import { v2 as cloudinary } from "cloudinary";
+import { oAuth2client } from "../utils/googleconfig.js";
+import axios from "axios";
 export const loginUser = TryCatch(async (req, res) => {
-    const { email, name, image } = req.body;
+    const { code } = req.body;
+    if (!code) {
+        res.status(400).json({ success: false, message: "Authorization code is required" });
+        return;
+    }
+    const googlersponse = await oAuth2client.getToken(code);
+    oAuth2client.setCredentials(googlersponse.tokens);
+    const userResponse = await axios.get(`https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${googlersponse.tokens.access_token}`);
+    const { email, name, picture } = userResponse.data;
     let user = await User.findOne({ email });
     if (!user) {
         user = await User.create({
             name,
             email,
-            image
+            image: picture,
         });
     }
     const token = jwt.sign({ user }, process.env.JWT_SEC, {
