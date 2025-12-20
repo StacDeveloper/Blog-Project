@@ -32,6 +32,9 @@ const userSchema: Schema<Iuser> = new Schema({
         type: String
 
     },
+    linkedin: {
+        type: String
+    },
     bio: {
         type: String
 
