@@ -1,0 +1,1036 @@
+[00:00:01.474] Server  LOG     ✓ Ready in 1049ms
+[00:00:07.620] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:08.552] Browser LOG     [{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my content for the blog<br></p>","category":"Technology","created_at":"2025-12-21T02:03:34.229Z","description":"This is description for my blog","id":11,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766282613/blogs/a1xi6qoeownkx7qqitfz.png","title":"This is my blog"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my blog from frontend</p>","category":"Health","created_at":"2025-12-20T13:57:30.714Z","description":"This is my blog from frontend","id":10,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766239050/blogs/ngyllgnhpkmufd1osloq.png","title":"This is my blog from frontend"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"","created_at":"2025-12-20T13:56:17.537Z","description":"This is fandem","id":9,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238977/blogs/sayvgedti0sngqidearj.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Health","created_at":"2025-12-20T13:55:34.293Z","description":"This is fandem","id":8,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238933/blogs/billmmbtryriibkbxnnf.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Finance","created_at":"2025-12-20T13:54:56.490Z","description":"This is fandem","id":7,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238895/blogs/oymgoasqmv4sduxkcmhr.png","title":"This is fandem"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for new","category":"category for new","created_at":"2025-12-18T18:14:23.726Z","description":"new description","id":6,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766081662/blogs/kdhtvartcjoxzbzdwe4m.png","title":"blog title -6 "},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:22.442Z","description":"description for 2","id":5,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821441/blogs/ononvqxistrvwkokln2j.png","title":"title-3"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:17.602Z","description":"description for 2","id":4,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821436/blogs/dnmntxcgsytmf4kgglms.png","title":"title-1"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:41:13.817Z","description":"description for 2","id":3,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820472/blogs/v3ba949cbdwohqsiny6b.png","title":"title"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent","category":"category","created_at":"2025-12-15T17:39:55.811Z","description":"description","id":2,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820394/blogs/gf18cbteqtkxhengtaci.png","title":"title"}]
+[00:02:33.903] Server  LOG     ✓ Compiled in 66ms
+[00:03:16.529] Server  LOG     ✓ Compiled in 75ms
+[00:03:28.811] Server  LOG     ✓ Compiled in 171ms
+[00:03:33.720] Server  LOG     ✓ Compiled in 31ms
+[00:03:42.019] Server  LOG     ✓ Compiled in 36ms
+[00:03:42.545] Browser ERROR   ./frontend/frontend/src/app/page.tsx:17:30
+Parsing ecmascript source code failed
+  15 |   return (
+  16 |     <div>
+> 17 |       {loading ? <Loading/> :}
+     |                              ^
+  18 |     </div>
+  19 |   )
+  20 | }
+
+Expected '</', got '}'
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+[00:03:43.554] Browser ERROR   ./frontend/frontend/src/app/page.tsx:17:31
+Parsing ecmascript source code failed
+  15 |   return (
+  16 |     <div>
+> 17 |       {loading ? <Loading/> : }
+     |                               ^
+  18 |     </div>
+  19 |   )
+  20 | }
+
+Expected '</', got '}'
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+[00:03:52.722] Server  LOG     ✓ Compiled in 42ms
+[00:04:00.610] Server  LOG     ✓ Compiled in 36ms
+[00:04:04.005] Server  LOG     ✓ Compiled in 39ms
+[00:04:19.046] Server  LOG     ✓ Compiled in 33ms
+[00:04:42.992] Server  LOG     ✓ Compiled in 37ms
+[00:04:45.326] Server  LOG     ✓ Compiled in 30ms
+[00:04:54.504] Server  LOG     ✓ Compiled in 37ms
+[00:04:55.546] Browser ERROR   ./frontend/frontend/src/app/page.tsx:19:7
+Parsing ecmascript source code failed
+  17 |     <>
+  18 |     <HomeLayout
+> 19 |       <div className=''>
+     |       ^
+  20 |         {loading ? <Loading /> : <div className='container mx-auto px-4'></div>}
+  21 |       </div>
+  22 |     </>
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+[00:04:58.764] Server  LOG     ✓ Compiled in 754ms
+[00:05:11.401] Server  LOG     ✓ Compiled in 34ms
+[00:05:16.670] Server  LOG     ✓ Compiled in 29ms
+[00:07:03.890] Server  LOG     ✓ Compiled in 51ms
+[00:09:33.524] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:09:33.670] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+      <Home params={Promise} searchParams={Promise}>
+        <HomeLayout>
+          <div>
+            <SidebarProvider>
+              <TooltipProvider delayDuration={0}>
+                <TooltipProvider data-slot="tooltip-pr..." delayDuration={0}>
+                  <TooltipProviderProvider scope={undefined} isOpenDelayedRef={{current:true}} delayDuration={0} ...>
+                    <div data-slot="sidebar-wr..." style={{...}} className="group/side...">
+                      <PanelLeft>
+                        <svg ref={null} xmlns="http://www..." width={24} height={24} viewBox="0 0 24 24" fill="none" ...>
+                          <rect>
+                          <path>
+                          <main className="w-full">
++                           <div className="w-full min-h-[calc(100vh-45px)] px-4">
+
+[00:09:33.883] Browser LOG     [{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my content for the blog<br></p>","category":"Technology","created_at":"2025-12-21T02:03:34.229Z","description":"This is description for my blog","id":11,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766282613/blogs/a1xi6qoeownkx7qqitfz.png","title":"This is my blog"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my blog from frontend</p>","category":"Health","created_at":"2025-12-20T13:57:30.714Z","description":"This is my blog from frontend","id":10,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766239050/blogs/ngyllgnhpkmufd1osloq.png","title":"This is my blog from frontend"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"","created_at":"2025-12-20T13:56:17.537Z","description":"This is fandem","id":9,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238977/blogs/sayvgedti0sngqidearj.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Health","created_at":"2025-12-20T13:55:34.293Z","description":"This is fandem","id":8,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238933/blogs/billmmbtryriibkbxnnf.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Finance","created_at":"2025-12-20T13:54:56.490Z","description":"This is fandem","id":7,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238895/blogs/oymgoasqmv4sduxkcmhr.png","title":"This is fandem"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for new","category":"category for new","created_at":"2025-12-18T18:14:23.726Z","description":"new description","id":6,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766081662/blogs/kdhtvartcjoxzbzdwe4m.png","title":"blog title -6 "},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:22.442Z","description":"description for 2","id":5,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821441/blogs/ononvqxistrvwkokln2j.png","title":"title-3"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:17.602Z","description":"description for 2","id":4,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821436/blogs/dnmntxcgsytmf4kgglms.png","title":"title-1"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:41:13.817Z","description":"description for 2","id":3,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820472/blogs/v3ba949cbdwohqsiny6b.png","title":"title"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent","category":"category","created_at":"2025-12-15T17:39:55.811Z","description":"description","id":2,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820394/blogs/gf18cbteqtkxhengtaci.png","title":"title"}]
+[00:09:33.883] Browser LOG     [{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my content for the blog<br></p>","category":"Technology","created_at":"2025-12-21T02:03:34.229Z","description":"This is description for my blog","id":11,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766282613/blogs/a1xi6qoeownkx7qqitfz.png","title":"This is my blog"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my blog from frontend</p>","category":"Health","created_at":"2025-12-20T13:57:30.714Z","description":"This is my blog from frontend","id":10,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766239050/blogs/ngyllgnhpkmufd1osloq.png","title":"This is my blog from frontend"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"","created_at":"2025-12-20T13:56:17.537Z","description":"This is fandem","id":9,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238977/blogs/sayvgedti0sngqidearj.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Health","created_at":"2025-12-20T13:55:34.293Z","description":"This is fandem","id":8,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238933/blogs/billmmbtryriibkbxnnf.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Finance","created_at":"2025-12-20T13:54:56.490Z","description":"This is fandem","id":7,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238895/blogs/oymgoasqmv4sduxkcmhr.png","title":"This is fandem"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for new","category":"category for new","created_at":"2025-12-18T18:14:23.726Z","description":"new description","id":6,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766081662/blogs/kdhtvartcjoxzbzdwe4m.png","title":"blog title -6 "},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:22.442Z","description":"description for 2","id":5,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821441/blogs/ononvqxistrvwkokln2j.png","title":"title-3"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:17.602Z","description":"description for 2","id":4,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821436/blogs/dnmntxcgsytmf4kgglms.png","title":"title-1"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:41:13.817Z","description":"description for 2","id":3,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820472/blogs/v3ba949cbdwohqsiny6b.png","title":"title"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent","category":"category","created_at":"2025-12-15T17:39:55.811Z","description":"description","id":2,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820394/blogs/gf18cbteqtkxhengtaci.png","title":"title"}]
+[00:10:40.836] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:10:40.961] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+      <Home params={Promise} searchParams={Promise}>
+        <HomeLayout>
+          <div>
+            <SidebarProvider>
+              <TooltipProvider delayDuration={0}>
+                <TooltipProvider data-slot="tooltip-pr..." delayDuration={0}>
+                  <TooltipProviderProvider scope={undefined} isOpenDelayedRef={{current:true}} delayDuration={0} ...>
+                    <div data-slot="sidebar-wr..." style={{...}} className="group/side...">
+                      <PanelLeft>
+                        <svg ref={null} xmlns="http://www..." width={24} height={24} viewBox="0 0 24 24" fill="none" ...>
+                          <rect>
+                          <path>
+                          <main className="w-full">
++                           <div className="w-full min-h-[calc(100vh-45px)] px-4">
+
+[00:10:41.144] Browser LOG     [{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my content for the blog<br></p>","category":"Technology","created_at":"2025-12-21T02:03:34.229Z","description":"This is description for my blog","id":11,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766282613/blogs/a1xi6qoeownkx7qqitfz.png","title":"This is my blog"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my blog from frontend</p>","category":"Health","created_at":"2025-12-20T13:57:30.714Z","description":"This is my blog from frontend","id":10,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766239050/blogs/ngyllgnhpkmufd1osloq.png","title":"This is my blog from frontend"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"","created_at":"2025-12-20T13:56:17.537Z","description":"This is fandem","id":9,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238977/blogs/sayvgedti0sngqidearj.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Health","created_at":"2025-12-20T13:55:34.293Z","description":"This is fandem","id":8,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238933/blogs/billmmbtryriibkbxnnf.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Finance","created_at":"2025-12-20T13:54:56.490Z","description":"This is fandem","id":7,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238895/blogs/oymgoasqmv4sduxkcmhr.png","title":"This is fandem"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for new","category":"category for new","created_at":"2025-12-18T18:14:23.726Z","description":"new description","id":6,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766081662/blogs/kdhtvartcjoxzbzdwe4m.png","title":"blog title -6 "},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:22.442Z","description":"description for 2","id":5,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821441/blogs/ononvqxistrvwkokln2j.png","title":"title-3"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:17.602Z","description":"description for 2","id":4,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821436/blogs/dnmntxcgsytmf4kgglms.png","title":"title-1"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:41:13.817Z","description":"description for 2","id":3,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820472/blogs/v3ba949cbdwohqsiny6b.png","title":"title"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent","category":"category","created_at":"2025-12-15T17:39:55.811Z","description":"description","id":2,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820394/blogs/gf18cbteqtkxhengtaci.png","title":"title"}]
+[00:10:41.144] Browser LOG     [{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my content for the blog<br></p>","category":"Technology","created_at":"2025-12-21T02:03:34.229Z","description":"This is description for my blog","id":11,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766282613/blogs/a1xi6qoeownkx7qqitfz.png","title":"This is my blog"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my blog from frontend</p>","category":"Health","created_at":"2025-12-20T13:57:30.714Z","description":"This is my blog from frontend","id":10,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766239050/blogs/ngyllgnhpkmufd1osloq.png","title":"This is my blog from frontend"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"","created_at":"2025-12-20T13:56:17.537Z","description":"This is fandem","id":9,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238977/blogs/sayvgedti0sngqidearj.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Health","created_at":"2025-12-20T13:55:34.293Z","description":"This is fandem","id":8,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238933/blogs/billmmbtryriibkbxnnf.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Finance","created_at":"2025-12-20T13:54:56.490Z","description":"This is fandem","id":7,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238895/blogs/oymgoasqmv4sduxkcmhr.png","title":"This is fandem"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for new","category":"category for new","created_at":"2025-12-18T18:14:23.726Z","description":"new description","id":6,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766081662/blogs/kdhtvartcjoxzbzdwe4m.png","title":"blog title -6 "},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:22.442Z","description":"description for 2","id":5,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821441/blogs/ononvqxistrvwkokln2j.png","title":"title-3"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:17.602Z","description":"description for 2","id":4,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821436/blogs/dnmntxcgsytmf4kgglms.png","title":"title-1"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:41:13.817Z","description":"description for 2","id":3,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820472/blogs/v3ba949cbdwohqsiny6b.png","title":"title"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent","category":"category","created_at":"2025-12-15T17:39:55.811Z","description":"description","id":2,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820394/blogs/gf18cbteqtkxhengtaci.png","title":"title"}]
+[00:11:02.659] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:11:02.787] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+      <Home params={Promise} searchParams={Promise}>
+        <HomeLayout>
+          <div>
+            <SidebarProvider>
+              <TooltipProvider delayDuration={0}>
+                <TooltipProvider data-slot="tooltip-pr..." delayDuration={0}>
+                  <TooltipProviderProvider scope={undefined} isOpenDelayedRef={{current:true}} delayDuration={0} ...>
+                    <div data-slot="sidebar-wr..." style={{...}} className="group/side...">
+                      <PanelLeft>
+                        <svg ref={null} xmlns="http://www..." width={24} height={24} viewBox="0 0 24 24" fill="none" ...>
+                          <rect>
+                          <path>
+                          <main className="w-full">
++                           <div className="w-full min-h-[calc(100vh-45px)] px-4">
+
+[00:11:02.992] Browser LOG     [{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my content for the blog<br></p>","category":"Technology","created_at":"2025-12-21T02:03:34.229Z","description":"This is description for my blog","id":11,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766282613/blogs/a1xi6qoeownkx7qqitfz.png","title":"This is my blog"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my blog from frontend</p>","category":"Health","created_at":"2025-12-20T13:57:30.714Z","description":"This is my blog from frontend","id":10,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766239050/blogs/ngyllgnhpkmufd1osloq.png","title":"This is my blog from frontend"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"","created_at":"2025-12-20T13:56:17.537Z","description":"This is fandem","id":9,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238977/blogs/sayvgedti0sngqidearj.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Health","created_at":"2025-12-20T13:55:34.293Z","description":"This is fandem","id":8,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238933/blogs/billmmbtryriibkbxnnf.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Finance","created_at":"2025-12-20T13:54:56.490Z","description":"This is fandem","id":7,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238895/blogs/oymgoasqmv4sduxkcmhr.png","title":"This is fandem"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for new","category":"category for new","created_at":"2025-12-18T18:14:23.726Z","description":"new description","id":6,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766081662/blogs/kdhtvartcjoxzbzdwe4m.png","title":"blog title -6 "},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:22.442Z","description":"description for 2","id":5,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821441/blogs/ononvqxistrvwkokln2j.png","title":"title-3"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:17.602Z","description":"description for 2","id":4,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821436/blogs/dnmntxcgsytmf4kgglms.png","title":"title-1"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:41:13.817Z","description":"description for 2","id":3,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820472/blogs/v3ba949cbdwohqsiny6b.png","title":"title"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent","category":"category","created_at":"2025-12-15T17:39:55.811Z","description":"description","id":2,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820394/blogs/gf18cbteqtkxhengtaci.png","title":"title"}]
+[00:11:02.992] Browser LOG     [{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my content for the blog<br></p>","category":"Technology","created_at":"2025-12-21T02:03:34.229Z","description":"This is description for my blog","id":11,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766282613/blogs/a1xi6qoeownkx7qqitfz.png","title":"This is my blog"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my blog from frontend</p>","category":"Health","created_at":"2025-12-20T13:57:30.714Z","description":"This is my blog from frontend","id":10,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766239050/blogs/ngyllgnhpkmufd1osloq.png","title":"This is my blog from frontend"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"","created_at":"2025-12-20T13:56:17.537Z","description":"This is fandem","id":9,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238977/blogs/sayvgedti0sngqidearj.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Health","created_at":"2025-12-20T13:55:34.293Z","description":"This is fandem","id":8,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238933/blogs/billmmbtryriibkbxnnf.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Finance","created_at":"2025-12-20T13:54:56.490Z","description":"This is fandem","id":7,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238895/blogs/oymgoasqmv4sduxkcmhr.png","title":"This is fandem"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for new","category":"category for new","created_at":"2025-12-18T18:14:23.726Z","description":"new description","id":6,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766081662/blogs/kdhtvartcjoxzbzdwe4m.png","title":"blog title -6 "},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:22.442Z","description":"description for 2","id":5,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821441/blogs/ononvqxistrvwkokln2j.png","title":"title-3"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:17.602Z","description":"description for 2","id":4,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821436/blogs/dnmntxcgsytmf4kgglms.png","title":"title-1"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:41:13.817Z","description":"description for 2","id":3,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820472/blogs/v3ba949cbdwohqsiny6b.png","title":"title"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent","category":"category","created_at":"2025-12-15T17:39:55.811Z","description":"description","id":2,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820394/blogs/gf18cbteqtkxhengtaci.png","title":"title"}]
+[00:12:09.469] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:12:09.600] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+      <Home params={Promise} searchParams={Promise}>
+        <HomeLayout>
+          <div>
+            <SidebarProvider>
+              <TooltipProvider delayDuration={0}>
+                <TooltipProvider data-slot="tooltip-pr..." delayDuration={0}>
+                  <TooltipProviderProvider scope={undefined} isOpenDelayedRef={{current:true}} delayDuration={0} ...>
+                    <div data-slot="sidebar-wr..." style={{...}} className="group/side...">
+                      <PanelLeft>
+                        <svg ref={null} xmlns="http://www..." width={24} height={24} viewBox="0 0 24 24" fill="none" ...>
+                          <rect>
+                          <path>
+                          <main className="w-full">
++                           <div className="w-full min-h-[calc(100vh-45px)] px-4">
+
+[00:12:09.789] Browser LOG     [{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my content for the blog<br></p>","category":"Technology","created_at":"2025-12-21T02:03:34.229Z","description":"This is description for my blog","id":11,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766282613/blogs/a1xi6qoeownkx7qqitfz.png","title":"This is my blog"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my blog from frontend</p>","category":"Health","created_at":"2025-12-20T13:57:30.714Z","description":"This is my blog from frontend","id":10,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766239050/blogs/ngyllgnhpkmufd1osloq.png","title":"This is my blog from frontend"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"","created_at":"2025-12-20T13:56:17.537Z","description":"This is fandem","id":9,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238977/blogs/sayvgedti0sngqidearj.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Health","created_at":"2025-12-20T13:55:34.293Z","description":"This is fandem","id":8,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238933/blogs/billmmbtryriibkbxnnf.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Finance","created_at":"2025-12-20T13:54:56.490Z","description":"This is fandem","id":7,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238895/blogs/oymgoasqmv4sduxkcmhr.png","title":"This is fandem"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for new","category":"category for new","created_at":"2025-12-18T18:14:23.726Z","description":"new description","id":6,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766081662/blogs/kdhtvartcjoxzbzdwe4m.png","title":"blog title -6 "},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:22.442Z","description":"description for 2","id":5,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821441/blogs/ononvqxistrvwkokln2j.png","title":"title-3"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:17.602Z","description":"description for 2","id":4,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821436/blogs/dnmntxcgsytmf4kgglms.png","title":"title-1"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:41:13.817Z","description":"description for 2","id":3,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820472/blogs/v3ba949cbdwohqsiny6b.png","title":"title"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent","category":"category","created_at":"2025-12-15T17:39:55.811Z","description":"description","id":2,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820394/blogs/gf18cbteqtkxhengtaci.png","title":"title"}]
+[00:12:09.789] Browser LOG     [{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my content for the blog<br></p>","category":"Technology","created_at":"2025-12-21T02:03:34.229Z","description":"This is description for my blog","id":11,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766282613/blogs/a1xi6qoeownkx7qqitfz.png","title":"This is my blog"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my blog from frontend</p>","category":"Health","created_at":"2025-12-20T13:57:30.714Z","description":"This is my blog from frontend","id":10,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766239050/blogs/ngyllgnhpkmufd1osloq.png","title":"This is my blog from frontend"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"","created_at":"2025-12-20T13:56:17.537Z","description":"This is fandem","id":9,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238977/blogs/sayvgedti0sngqidearj.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Health","created_at":"2025-12-20T13:55:34.293Z","description":"This is fandem","id":8,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238933/blogs/billmmbtryriibkbxnnf.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Finance","created_at":"2025-12-20T13:54:56.490Z","description":"This is fandem","id":7,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238895/blogs/oymgoasqmv4sduxkcmhr.png","title":"This is fandem"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for new","category":"category for new","created_at":"2025-12-18T18:14:23.726Z","description":"new description","id":6,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766081662/blogs/kdhtvartcjoxzbzdwe4m.png","title":"blog title -6 "},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:22.442Z","description":"description for 2","id":5,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821441/blogs/ononvqxistrvwkokln2j.png","title":"title-3"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:17.602Z","description":"description for 2","id":4,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821436/blogs/dnmntxcgsytmf4kgglms.png","title":"title-1"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:41:13.817Z","description":"description for 2","id":3,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820472/blogs/v3ba949cbdwohqsiny6b.png","title":"title"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent","category":"category","created_at":"2025-12-15T17:39:55.811Z","description":"description","id":2,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820394/blogs/gf18cbteqtkxhengtaci.png","title":"title"}]
+[00:12:26.592] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:12:26.713] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+      <Home params={Promise} searchParams={Promise}>
+        <HomeLayout>
+          <div>
+            <SidebarProvider>
+              <TooltipProvider delayDuration={0}>
+                <TooltipProvider data-slot="tooltip-pr..." delayDuration={0}>
+                  <TooltipProviderProvider scope={undefined} isOpenDelayedRef={{current:true}} delayDuration={0} ...>
+                    <div data-slot="sidebar-wr..." style={{...}} className="group/side...">
+                      <PanelLeft>
+                        <svg ref={null} xmlns="http://www..." width={24} height={24} viewBox="0 0 24 24" fill="none" ...>
+                          <rect>
+                          <path>
+                          <main className="w-full">
++                           <div className="w-full min-h-[calc(100vh-45px)] px-4">
+
+[00:12:26.894] Browser LOG     [{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my content for the blog<br></p>","category":"Technology","created_at":"2025-12-21T02:03:34.229Z","description":"This is description for my blog","id":11,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766282613/blogs/a1xi6qoeownkx7qqitfz.png","title":"This is my blog"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my blog from frontend</p>","category":"Health","created_at":"2025-12-20T13:57:30.714Z","description":"This is my blog from frontend","id":10,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766239050/blogs/ngyllgnhpkmufd1osloq.png","title":"This is my blog from frontend"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"","created_at":"2025-12-20T13:56:17.537Z","description":"This is fandem","id":9,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238977/blogs/sayvgedti0sngqidearj.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Health","created_at":"2025-12-20T13:55:34.293Z","description":"This is fandem","id":8,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238933/blogs/billmmbtryriibkbxnnf.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Finance","created_at":"2025-12-20T13:54:56.490Z","description":"This is fandem","id":7,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238895/blogs/oymgoasqmv4sduxkcmhr.png","title":"This is fandem"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for new","category":"category for new","created_at":"2025-12-18T18:14:23.726Z","description":"new description","id":6,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766081662/blogs/kdhtvartcjoxzbzdwe4m.png","title":"blog title -6 "},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:22.442Z","description":"description for 2","id":5,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821441/blogs/ononvqxistrvwkokln2j.png","title":"title-3"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:17.602Z","description":"description for 2","id":4,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821436/blogs/dnmntxcgsytmf4kgglms.png","title":"title-1"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:41:13.817Z","description":"description for 2","id":3,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820472/blogs/v3ba949cbdwohqsiny6b.png","title":"title"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent","category":"category","created_at":"2025-12-15T17:39:55.811Z","description":"description","id":2,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820394/blogs/gf18cbteqtkxhengtaci.png","title":"title"}]
+[00:12:26.894] Browser LOG     [{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my content for the blog<br></p>","category":"Technology","created_at":"2025-12-21T02:03:34.229Z","description":"This is description for my blog","id":11,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766282613/blogs/a1xi6qoeownkx7qqitfz.png","title":"This is my blog"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my blog from frontend</p>","category":"Health","created_at":"2025-12-20T13:57:30.714Z","description":"This is my blog from frontend","id":10,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766239050/blogs/ngyllgnhpkmufd1osloq.png","title":"This is my blog from frontend"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"","created_at":"2025-12-20T13:56:17.537Z","description":"This is fandem","id":9,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238977/blogs/sayvgedti0sngqidearj.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Health","created_at":"2025-12-20T13:55:34.293Z","description":"This is fandem","id":8,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238933/blogs/billmmbtryriibkbxnnf.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Finance","created_at":"2025-12-20T13:54:56.490Z","description":"This is fandem","id":7,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238895/blogs/oymgoasqmv4sduxkcmhr.png","title":"This is fandem"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for new","category":"category for new","created_at":"2025-12-18T18:14:23.726Z","description":"new description","id":6,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766081662/blogs/kdhtvartcjoxzbzdwe4m.png","title":"blog title -6 "},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:22.442Z","description":"description for 2","id":5,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821441/blogs/ononvqxistrvwkokln2j.png","title":"title-3"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:17.602Z","description":"description for 2","id":4,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821436/blogs/dnmntxcgsytmf4kgglms.png","title":"title-1"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:41:13.817Z","description":"description for 2","id":3,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820472/blogs/v3ba949cbdwohqsiny6b.png","title":"title"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent","category":"category","created_at":"2025-12-15T17:39:55.811Z","description":"description","id":2,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820394/blogs/gf18cbteqtkxhengtaci.png","title":"title"}]
+[00:12:27.632] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:12:27.797] Browser LOG     [{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my content for the blog<br></p>","category":"Technology","created_at":"2025-12-21T02:03:34.229Z","description":"This is description for my blog","id":11,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766282613/blogs/a1xi6qoeownkx7qqitfz.png","title":"This is my blog"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my blog from frontend</p>","category":"Health","created_at":"2025-12-20T13:57:30.714Z","description":"This is my blog from frontend","id":10,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766239050/blogs/ngyllgnhpkmufd1osloq.png","title":"This is my blog from frontend"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"","created_at":"2025-12-20T13:56:17.537Z","description":"This is fandem","id":9,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238977/blogs/sayvgedti0sngqidearj.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Health","created_at":"2025-12-20T13:55:34.293Z","description":"This is fandem","id":8,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238933/blogs/billmmbtryriibkbxnnf.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Finance","created_at":"2025-12-20T13:54:56.490Z","description":"This is fandem","id":7,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238895/blogs/oymgoasqmv4sduxkcmhr.png","title":"This is fandem"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for new","category":"category for new","created_at":"2025-12-18T18:14:23.726Z","description":"new description","id":6,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766081662/blogs/kdhtvartcjoxzbzdwe4m.png","title":"blog title -6 "},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:22.442Z","description":"description for 2","id":5,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821441/blogs/ononvqxistrvwkokln2j.png","title":"title-3"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:17.602Z","description":"description for 2","id":4,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821436/blogs/dnmntxcgsytmf4kgglms.png","title":"title-1"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:41:13.817Z","description":"description for 2","id":3,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820472/blogs/v3ba949cbdwohqsiny6b.png","title":"title"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent","category":"category","created_at":"2025-12-15T17:39:55.811Z","description":"description","id":2,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820394/blogs/gf18cbteqtkxhengtaci.png","title":"title"}]
+[00:15:04.568] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.569] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.569] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.570] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.580] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.580] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.581] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.582] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.583] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.583] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.584] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.585] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.586] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.586] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.587] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.587] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.588] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.589] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.589] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.590] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.591] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.592] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.592] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.593] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.594] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.594] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.595] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.595] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.596] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.597] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.598] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.598] Server  ERROR   ⨯ ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:15:04.616] Server  LOG     ✓ Compiled in 54ms
+[00:15:05.553] Browser ERROR   ./frontend/frontend/src/components/ui/homelayout.tsx:1:1
+Module not found: Can't resolve './ui/sidebar'
+> 1 | import { Sidebar} from './ui/sidebar'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import React from 'react'
+  3 | import { SidebarProvider } from './sidebar'
+  4 |
+
+Import traces:
+  Client Component Browser:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Client Component Browser]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/frontend/src/components/ui/homelayout.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Client Component SSR]
+    ./frontend/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:16:52.099] Server  LOG     ✓ Compiled in 27ms
+[00:18:17.354] Server  LOG     ✓ Compiled in 40ms
+[00:18:51.074] Server  LOG     ✓ Compiled in 45ms
+[00:19:26.118] Server  LOG     ✓ Compiled in 30ms
+[00:20:12.197] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:20:12.516] Browser LOG     [{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my content for the blog<br></p>","category":"Technology","created_at":"2025-12-21T02:03:34.229Z","description":"This is description for my blog","id":11,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766282613/blogs/a1xi6qoeownkx7qqitfz.png","title":"This is my blog"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is my blog from frontend</p>","category":"Health","created_at":"2025-12-20T13:57:30.714Z","description":"This is my blog from frontend","id":10,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766239050/blogs/ngyllgnhpkmufd1osloq.png","title":"This is my blog from frontend"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"","created_at":"2025-12-20T13:56:17.537Z","description":"This is fandem","id":9,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238977/blogs/sayvgedti0sngqidearj.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Health","created_at":"2025-12-20T13:55:34.293Z","description":"This is fandem","id":8,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238933/blogs/billmmbtryriibkbxnnf.png","title":"This is fandem"},{"author":"6945c666a123ca0d7b3f628f","blogcontent":"<p>This is fandem</p>","category":"Finance","created_at":"2025-12-20T13:54:56.490Z","description":"This is fandem","id":7,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766238895/blogs/oymgoasqmv4sduxkcmhr.png","title":"This is fandem"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for new","category":"category for new","created_at":"2025-12-18T18:14:23.726Z","description":"new description","id":6,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1766081662/blogs/kdhtvartcjoxzbzdwe4m.png","title":"blog title -6 "},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:22.442Z","description":"description for 2","id":5,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821441/blogs/ononvqxistrvwkokln2j.png","title":"title-3"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:57:17.602Z","description":"description for 2","id":4,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765821436/blogs/dnmntxcgsytmf4kgglms.png","title":"title-1"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent for 2","category":"category for 3","created_at":"2025-12-15T17:41:13.817Z","description":"description for 2","id":3,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820472/blogs/v3ba949cbdwohqsiny6b.png","title":"title"},{"author":"693ddfdf41109ddbb641d18c","blogcontent":"blogcontent","category":"category","created_at":"2025-12-15T17:39:55.811Z","description":"description","id":2,"image":"https://res.cloudinary.com/dkqiyutop/image/upload/v1765820394/blogs/gf18cbteqtkxhengtaci.png","title":"title"}]

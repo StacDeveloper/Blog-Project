@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/user/Desktop/Blog%20Project/frontend/frontend/src/app/login/page.tsx"],"sourcesContent":["import React from 'react'\r\n\r\nconst LoginPage = () => {\r\n  return (\r\n    <div>LoginPage</div>\r\n  )\r\n}\r\n\r\nexport default LoginPage"],"names":[],"mappings":";;;;;;AAEA,MAAM,YAAY;IAChB,qBACE,sQAAC;kBAAI;;;;;;AAET;uCAEe"}}]
+}
