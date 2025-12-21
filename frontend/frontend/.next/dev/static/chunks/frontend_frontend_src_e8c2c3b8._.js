@@ -1247,6 +1247,9 @@ const AddBlog = ()=>{
         image: null,
         blogcontent: ""
     });
+    const [Ai, setAi] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [Aidescription, setAidescription] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [AiBlog, SetAiBlog] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const handleInputChange = (e)=>{
         SetformData({
             ...formData,
@@ -1296,6 +1299,88 @@ const AddBlog = ()=>{
             setloading(false);
         }
     };
+    const AititleResponse = async ()=>{
+        try {
+            setAi(true);
+            const token_0 = __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$js$2d$cookie$2f$dist$2f$js$2e$cookie$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].get("token");
+            const { data: data_0 } = await __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].post(`${__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$context$2f$appcontext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["author"]}/api/auth/blog/ai/title`, {
+                text: formData.title
+            }, {
+                headers: {
+                    Authorization: `Bearer ${token_0}`,
+                    "Content-type": "application/json"
+                }
+            });
+            if (data_0.success && data_0.result) {
+                SetformData({
+                    ...formData,
+                    title: data_0.result
+                });
+                __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].success("Title Improved Successfully");
+            } else {
+                __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error(data_0.message || "Failed to Improve");
+            }
+        } catch (error_0) {
+            console.log(error_0);
+            __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error(error_0?.message);
+        } finally{
+            setAi(false);
+        }
+    };
+    const AIdescriptionResponse = async ()=>{
+        try {
+            setAidescription(true);
+            const token_1 = __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$js$2d$cookie$2f$dist$2f$js$2e$cookie$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].get("token");
+            const { data: data_1 } = await __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].post(`${__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$context$2f$appcontext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["author"]}/api/auth/blog/ai/description`, {
+                title: formData.title,
+                description: formData.description || ""
+            }, {
+                headers: {
+                    Authorization: `Bearer ${token_1}`
+                }
+            });
+            if (data_1.success && data_1.result) {
+                __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].success("Successfully changed the description");
+                SetformData({
+                    ...formData,
+                    description: data_1.result
+                });
+            } else {
+                console.error(data_1.message);
+                __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error("Failed to post data");
+            }
+        } catch (error_1) {
+            console.log(error_1);
+        } finally{
+            setAidescription(false);
+        }
+    };
+    const AiblogResponse = async ()=>{
+        SetAiBlog(true);
+        try {
+            const token_2 = __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$js$2d$cookie$2f$dist$2f$js$2e$cookie$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].get("token");
+            const { data: data_2 } = await __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].post(`${__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$context$2f$appcontext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["author"]}/api/auth/blog/ai/aiblogresponse`, {
+                blog: formData.blogcontent
+            }, {
+                headers: {
+                    Authorization: `Bearer ${token_2}`
+                }
+            });
+            if (!data_2.success && data_2.html) {
+                setContent(data_2.html);
+                SetformData({
+                    ...formData,
+                    blogcontent: data_2.html
+                });
+                __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].success("Fixed Grammer Successfully");
+            }
+        } catch (error_2) {
+            console.log(error_2);
+            __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error(error_2.message);
+        } finally{
+            SetAiBlog(false);
+        }
+    };
     const config = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"])({
         "AddBlog.useMemo[config]": ()=>({
                 readonly: false,
@@ -1313,12 +1398,12 @@ const AddBlog = ()=>{
                         children: "Add New Blog"
                     }, void 0, false, {
                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                        lineNumber: 100,
+                        lineNumber: 204,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                    lineNumber: 99,
+                    lineNumber: 203,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1330,7 +1415,7 @@ const AddBlog = ()=>{
                                 children: "Title"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                lineNumber: 106,
+                                lineNumber: 210,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1339,37 +1424,43 @@ const AddBlog = ()=>{
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
                                         name: "title",
                                         required: true,
-                                        value: formData.title,
+                                        value: formData.title || "",
                                         onChange: handleInputChange,
-                                        placeholder: "Enter Blog Title"
+                                        placeholder: "Enter Blog Title",
+                                        className: `${Ai ? "animate-pulse placeholder:opacity-60" : ""}`
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                        lineNumber: 108,
+                                        lineNumber: 212,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                    " ",
+                                    formData.title === "" ? "" : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                        onClick: AititleResponse,
+                                        disabled: Ai,
                                         type: "button",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$refresh$2d$cw$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__RefreshCw$3e$__["RefreshCw"], {}, void 0, false, {
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$refresh$2d$cw$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__RefreshCw$3e$__["RefreshCw"], {
+                                            className: `${Ai ? "animate-spin" : ""}`
+                                        }, void 0, false, {
                                             fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                            lineNumber: 109,
-                                            columnNumber: 37
+                                            lineNumber: 212,
+                                            columnNumber: 294
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                        lineNumber: 109,
-                                        columnNumber: 15
+                                        lineNumber: 212,
+                                        columnNumber: 232
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                lineNumber: 107,
+                                lineNumber: 211,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
                                 children: "Description"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                lineNumber: 111,
+                                lineNumber: 215,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1379,36 +1470,39 @@ const AddBlog = ()=>{
                                         name: "description",
                                         required: true,
                                         placeholder: "Enter Blog Description",
-                                        value: formData.description,
+                                        value: formData.description || "",
                                         onChange: handleInputChange
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                        lineNumber: 113,
+                                        lineNumber: 217,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                        type: "button",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$refresh$2d$cw$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__RefreshCw$3e$__["RefreshCw"], {}, void 0, false, {
+                                    formData.title === "" ? "" : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                        onClick: AIdescriptionResponse,
+                                        disabled: Aidescription,
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$refresh$2d$cw$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__RefreshCw$3e$__["RefreshCw"], {
+                                            className: `${Aidescription ? "animate-spin" : ""}`
+                                        }, void 0, false, {
                                             fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                            lineNumber: 114,
-                                            columnNumber: 37
+                                            lineNumber: 218,
+                                            columnNumber: 110
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                        lineNumber: 114,
-                                        columnNumber: 15
+                                        lineNumber: 218,
+                                        columnNumber: 45
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                lineNumber: 112,
+                                lineNumber: 216,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
                                 children: "Category"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                lineNumber: 116,
+                                lineNumber: 220,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -1422,12 +1516,12 @@ const AddBlog = ()=>{
                                             placeholder: formData.category || "Select Category"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                            lineNumber: 122,
+                                            lineNumber: 226,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                        lineNumber: 121,
+                                        lineNumber: 225,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1436,18 +1530,18 @@ const AddBlog = ()=>{
                                                 children: blog_0
                                             }, index, false, {
                                                 fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                                lineNumber: 125,
+                                                lineNumber: 229,
                                                 columnNumber: 74
                                             }, ("TURBOPACK compile-time value", void 0)))
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                        lineNumber: 124,
+                                        lineNumber: 228,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                lineNumber: 117,
+                                lineNumber: 221,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1456,7 +1550,7 @@ const AddBlog = ()=>{
                                         children: "Image Upload"
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                        lineNumber: 129,
+                                        lineNumber: 233,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1465,13 +1559,13 @@ const AddBlog = ()=>{
                                         onChange: handleFileChange
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                        lineNumber: 130,
+                                        lineNumber: 234,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                lineNumber: 128,
+                                lineNumber: 232,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1480,7 +1574,7 @@ const AddBlog = ()=>{
                                         children: "Blog Content"
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                        lineNumber: 133,
+                                        lineNumber: 237,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1490,14 +1584,17 @@ const AddBlog = ()=>{
                                             children: [
                                                 "Paste Your blog or type here. You can use rich text and formatting. Please add image after improving your grammer.",
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                    onClick: AiblogResponse,
+                                                    disabled: AiBlog,
                                                     type: "button",
                                                     size: "sm",
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$refresh$2d$cw$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__RefreshCw$3e$__["RefreshCw"], {
-                                                            size: 16
+                                                            size: 16,
+                                                            className: `${AiBlog ? "animate-spin" : ""}`
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                                            lineNumber: 138,
+                                                            lineNumber: 242,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1505,24 +1602,24 @@ const AddBlog = ()=>{
                                                             children: "Fix Grammer"
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                                            lineNumber: 139,
+                                                            lineNumber: 243,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                                    lineNumber: 137,
+                                                    lineNumber: 241,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                            lineNumber: 135,
+                                            lineNumber: 239,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                        lineNumber: 134,
+                                        lineNumber: 238,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(JoditEditor, {
@@ -1538,13 +1635,13 @@ const AddBlog = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                        lineNumber: 143,
+                                        lineNumber: 247,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                lineNumber: 132,
+                                lineNumber: 236,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1554,33 +1651,33 @@ const AddBlog = ()=>{
                                 children: loading ? "...Submitting" : "Submit"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                lineNumber: 150,
+                                lineNumber: 254,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                        lineNumber: 105,
+                        lineNumber: 209,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                    lineNumber: 104,
+                    lineNumber: 208,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-            lineNumber: 98,
+            lineNumber: 202,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-        lineNumber: 97,
+        lineNumber: 201,
         columnNumber: 10
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(AddBlog, "/2VxwaGM9vlU1ab7G+XBaKow660=");
+_s(AddBlog, "GTezUSwkbTEcbVrV0mMi7oCx8cU=");
 _c1 = AddBlog;
 const __TURBOPACK__default__export__ = AddBlog;
 var _c, _c1;

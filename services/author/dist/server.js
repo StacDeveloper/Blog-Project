@@ -16,7 +16,7 @@ await connectRabbitmq();
 app.use("/api/auth", authRouter);
 initDB().then(() => {
     app.listen(PORT, () => {
-        console.log(`Server is running on http://localhost:${PORT}`);
+        console.log(`Author Server is running on http://localhost:${PORT}`);
     });
 });
 //# sourceMappingURL=server.js.map

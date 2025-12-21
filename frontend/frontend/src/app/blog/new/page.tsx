@@ -12,6 +12,7 @@ import axios from 'axios'
 import { author } from '@/context/appcontext'
 import toast from 'react-hot-toast'
 
+
 const JoditEditor = dynamic(() => import('jodit-react'), { ssr: false })
 
 
@@ -30,6 +31,23 @@ interface axiosResponse {
   token: string,
 }
 
+interface Aititleresponse {
+  success: string,
+  result: string
+  token: string,
+  message: string,
+  title?: string
+
+}
+
+interface AIdescriptionResponse extends Aititleresponse {
+  description?: string
+}
+
+interface AIBlogResponse extends AIdescriptionResponse {
+  html?: string
+}
+
 const AddBlog = () => {
   const editor = useRef(null);
   const [content, setContent] = useState('');
@@ -41,6 +59,10 @@ const AddBlog = () => {
     image: null,
     blogcontent: ""
   })
+  const [Ai, setAi] = useState<boolean>(false)
+  const [Aidescription, setAidescription] = useState<boolean>(false)
+  const [AiBlog, SetAiBlog] = useState<boolean>(false)
+
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     SetformData({ ...formData, [e.target.name]: e.target.value })
@@ -85,6 +107,67 @@ const AddBlog = () => {
   }
 
 
+  const AititleResponse = async () => {
+    try {
+      setAi(true)
+      const token = Cookies.get("token")
+      const { data } = await axios.post<Aititleresponse>(`${author}/api/auth/blog/ai/title`, { text: formData.title }, { headers: { Authorization: `Bearer ${token}`, "Content-type": "application/json" } })
+
+      if (data.success && data.result) {
+        SetformData({ ...formData, title: data.result })
+        toast.success("Title Improved Successfully")
+      } else {
+        toast.error(data.message || "Failed to Improve")
+      }
+
+
+    } catch (error: any) {
+      console.log(error)
+      toast.error(error?.message)
+    } finally {
+      setAi(false)
+    }
+  }
+
+  const AIdescriptionResponse = async () => {
+    try {
+      setAidescription(true)
+      const token = Cookies.get("token")
+      const { data } = await axios.post<AIdescriptionResponse>(`${author}/api/auth/blog/ai/description`, { title: formData.title, description: formData.description || "" }, { headers: { Authorization: `Bearer ${token}` } })
+
+      if (data.success && data.result) {
+        toast.success("Successfully changed the description")
+        SetformData({ ...formData, description: data.result! })
+      } else {
+        console.error(data.message)
+        toast.error("Failed to post data")
+      }
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setAidescription(false)
+    }
+  }
+
+  const AiblogResponse = async () => {
+    SetAiBlog(true)
+    try {
+      const token = Cookies.get("token")
+      const { data } = await axios.post<AIBlogResponse>(`${author}/api/auth/blog/ai/aiblogresponse`, { blog: formData.blogcontent }, { headers: { Authorization: `Bearer ${token}` } })
+
+      if (!data.success && data.html) {
+        setContent(data.html)
+        SetformData({ ...formData, blogcontent: data.html })
+        toast.success("Fixed Grammer Successfully")
+      }
+    } catch (error: any) {
+      console.log(error)
+      toast.error(error.message)
+    } finally {
+      SetAiBlog(false)
+    }
+  }
+
 
 
   const config = useMemo(() => ({
@@ -109,13 +192,13 @@ const AddBlog = () => {
           >
             <Label>Title</Label>
             <div className='flex justify-center items-center gap-2'>
-              <Input name='title' required value={formData.title} onChange={handleInputChange} placeholder='Enter Blog Title' />
-              <Button type='button'><RefreshCw /></Button>
+              <Input name='title' required value={formData.title || ""} onChange={handleInputChange} placeholder='Enter Blog Title' className={`${Ai ? "animate-pulse placeholder:opacity-60" : ""}`} /> {formData.title === "" ? "" : <Button onClick={AititleResponse} disabled={Ai} type='button'><RefreshCw className={`${Ai ? "animate-spin" : ""}`} /></Button>}
+
             </div>
             <Label>Description</Label>
             <div className='flex justify-center items-center gap-2'>
-              <Input name='description' required placeholder='Enter Blog Description' value={formData.description} onChange={handleInputChange} />
-              <Button type='button'><RefreshCw /></Button>
+              <Input name='description' required placeholder='Enter Blog Description' value={formData.description || ""} onChange={handleInputChange} />
+              {formData.title === "" ? "" : <Button onClick={AIdescriptionResponse} disabled={Aidescription}><RefreshCw className={`${Aidescription ? "animate-spin" : ""}`} /></Button>}
             </div>
             <Label>Category</Label>
             <Select onValueChange={(e: any) => SetformData({ ...formData, category: e })}>
@@ -137,8 +220,8 @@ const AddBlog = () => {
               <div className='flex justify-between items-center mb-2'>
                 <p className='text-sm text-muted-foreground'>
                   Paste Your blog or type here. You can use rich text and formatting. Please add image after improving your grammer.
-                  <Button type='button' size={"sm"}>
-                    <RefreshCw size={16} />
+                  <Button onClick={AiblogResponse} disabled={AiBlog} type='button' size={"sm"}>
+                    <RefreshCw size={16} className={`${AiBlog ? "animate-spin" : ""}`} />
                     <span className='ml-2'>Fix Grammer</span>
                   </Button>
                 </p>
