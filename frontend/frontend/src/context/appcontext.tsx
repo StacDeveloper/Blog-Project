@@ -8,7 +8,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google"
 
 
 export const user_service = "http://localhost:5000"
-export const blog = "http://localhost:5002"
+export const blog_service = "http://localhost:5002"
 export const author = "http://localhost:5001"
 
 
@@ -38,6 +38,13 @@ interface AppProviderProps {
     children: React.ReactNode
 }
 
+interface BlogApiResponse{ 
+    blogs?:Blog | null
+    success?:string,
+    message?:string,
+    token?:string
+}
+
 interface AppContextType {
     user: User | null
     loading: boolean,
@@ -46,14 +53,18 @@ interface AppContextType {
     setloading: React.Dispatch<React.SetStateAction<boolean>>
     setisAuth: React.Dispatch<React.SetStateAction<boolean>>,
     logoutUser: () => void
+    blog:Blog[] | null
+    blogLoading:boolean
 }
 const AppContext = createContext<AppContextType | undefined>(undefined)
 
 
 export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     const [user, setUser] = useState<User | null>(null)
-    const [isAuth, setisAuth] = useState(false)
-    const [loading, setloading] = useState(true)
+    const [isAuth, setisAuth] = useState<boolean>(false)
+    const [loading, setloading] = useState<boolean>(true)
+    const [blogLoading, setBlogLoading] = useState<boolean>(true)
+    const [blog, setBlog] = useState<Blog[] | null>(null)
 
     async function fetchUser() {
         try {
@@ -81,13 +92,25 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     }
 
     useEffect(() => {
-        fetchUser()
+        fetchUser();
+        fetchBlogs()
     }, [])
 
-   
+    async function fetchBlogs() {
+        setBlogLoading(true)
+        try {
+            const { data } = await axios.get<BlogApiResponse>(`${blog_service}/api/blog/blogs/allblogs`)
+            setBlog(data)
+            console.log(data)
+        } catch (error) {
+            console.log(error)
+        } finally {
+            setBlogLoading(false)
+        }
+    }
 
     return (
-        <AppContext.Provider value={{ user, loading, isAuth, setloading, setisAuth, setUser, logoutUser }}>
+        <AppContext.Provider value={{ user, loading, isAuth, setloading, setisAuth, setUser, logoutUser, blog, blogLoading }}>
             <GoogleOAuthProvider clientId={`${process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || ""}`}>
                 <Toaster />
                 {children}

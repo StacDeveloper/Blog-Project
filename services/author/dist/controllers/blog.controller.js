@@ -1,8 +1,10 @@
+import { text } from "express";
 import TryCatch from "../utils/trycatch.js";
 import getBuffer from "../utils/datauri.js";
 import { v2 as cloudinary } from "cloudinary";
 import { pgsql } from "../utils/db.js";
 import { invalidateCacheJob } from "../utils/rabbitmq.js";
+import { GoogleGenAI } from "@google/genai";
 export const createBlog = TryCatch(async (req, res) => {
     const { title, description, blogcontent, category } = req.body;
     const file = req.file;
@@ -70,5 +72,98 @@ export const deleteblog = TryCatch(async (req, res) => {
     await pgsql `DELETE FROM blogs WHERE id=${req.params.id}`;
     await invalidateCacheJob(["blogs:*", `blog:${req.params.id}`]);
     res.json({ success: true, message: "Blog deleted" });
+});
+export const AItitleResponse = TryCatch(async (req, res) => {
+    const { text } = req.body;
+    const prompt = `Correct the grammer of the following blog title and return only the corrected title without any additional text, formatting or symbols: ${text}`;
+    if (!text) {
+        res.status(400).json({ success: false, message: "Gemini did not worked" });
+        return;
+    }
+    const ai = new GoogleGenAI({
+        apiKey: process.env.GEMINI_API_KEY
+    });
+    let result;
+    async function geminiFunction() {
+        const response = await ai.models.generateContent({
+            model: "gemini-2.5-flash",
+            contents: prompt
+        });
+        let rawtext = response.text;
+        if (!rawtext) {
+            res.status(400).json({ success: false, message: "Gemini did not worked" });
+            return;
+        }
+        result = rawtext?.replace(/\*\*/g, "").replace(/[\r\n]+/g, "").replace(/[*_`~]/g, "").trim();
+    }
+    await geminiFunction();
+    res.json({ success: true, result });
+});
+export const AiDescResponse = TryCatch(async (req, res) => {
+    const { title, description } = req.body;
+    const prompt = description === "" ? `Generate only one short blog description based on this :"${title}". Your response must be only one sentence, strictly under 30 words, with no options, no greetings, and no extra text. Do not explain. Do not say 'here is'. Just return the description only` : `Fix the grammer in the following blog description and return only the corrected sentence. Do not add anything else:"${description}"`;
+    let result;
+    async function geminidescription() {
+        const ai = new GoogleGenAI({
+            apiKey: process.env.GEMINI_API_KEY
+        });
+        const response = await ai.models.generateContent({
+            model: "gemini-2.5-flash",
+            contents: prompt
+        });
+        const rawtext = response.text;
+        if (!rawtext) {
+            res.status(400).json({ success: false, message: "Sorry Cant Process request at the moment" });
+        }
+        result = rawtext?.replace(/\*\*/g, "").replace(/[\r\n]+/g, "").replace(/[*_`~]/g, "").trim();
+    }
+    await geminidescription();
+    res.status(200).json({ success: true, result });
+});
+export const aiBlogResponse = TryCatch(async (req, res) => {
+    const { blog } = req.body;
+    if (!blog) {
+        return res.status(400).json({ success: false, message: "Please provide blog content" });
+    }
+    const prompt = `You will act as a grammar correction engine. I will provide you with blog content in rich HTML format (from Jodit Editor). Do not generate or rewrite the content with new ideas. Only correct grammatical, punctuation, and spelling errors while preserving all HTML tags and formatting. Maintain inline styles, image tags, line breaks, and structural tags exactly as they are. Return the full corrected HTML string as output.`;
+    const fullmessage = `${prompt}\n\n${blog}`;
+    try {
+        const ai = new GoogleGenAI({
+            apiKey: process.env.GEMINI_API_KEY
+        });
+        const response = await ai.models.generateContent({
+            model: "gemini-2.5-flash",
+            contents: fullmessage
+        });
+        const rawtext = response.text;
+        if (!rawtext) {
+            return res.status(400).json({
+                success: false,
+                message: "Sorry, can't process request at the moment"
+            });
+        }
+        // Clean the HTML response
+        const result = rawtext
+            .replace(/```html\n?/gi, "") // Remove ```html
+            .replace(/```\n?/g, "") // Remove ```
+            .replace(/^\s*html\s*/i, "") // Remove leading "html"
+            .replace(/\*\*/g, "") // Remove **
+            .replace(/[*_`~]/g, "") // Remove markdown symbols
+            .trim();
+        res.status(200).json({ success: true, html: result });
+    }
+    catch (error) {
+        console.error("Gemini API Error:", error);
+        if (error.status === 429) {
+            return res.status(429).json({
+                success: false,
+                message: "Rate limit exceeded. Please try again later."
+            });
+        }
+        res.status(500).json({
+            success: false,
+            message: error.message || "Failed to process blog content"
+        });
+    }
 });
 //# sourceMappingURL=blog.controller.js.map
