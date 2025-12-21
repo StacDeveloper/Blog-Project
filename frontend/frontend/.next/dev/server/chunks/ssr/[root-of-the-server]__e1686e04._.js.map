@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/user/Desktop/Blog%20Project/frontend/frontend/src/app/blog/new/page.tsx"],"sourcesContent":["import React from 'react'\r\n\r\nconst AddBlog = () => {\r\n  return (\r\n    <div className='max-w-4xl mx-auto p-6'>\r\n      <Card></Card>\r\n    </div>\r\n  )\r\n}\r\n\r\nexport default AddBlog"],"names":[],"mappings":";;;;;;AAEA,MAAM,UAAU;IACd,qBACE,sQAAC;QAAI,WAAU;kBACb,cAAA,sQAAC;;;;;;;;;;AAGP;uCAEe"}}]
-}
