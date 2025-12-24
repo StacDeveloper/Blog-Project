@@ -1,14 +1,14 @@
 {
   "app": {
-    "[project]/frontend/frontend/src/app/login/page": [
+    "[project]/frontend/frontend/src/app/blog/[id]/page": [
       "static/media/caa3a2e1cccd8315-s.p.853070df.woff2",
       "static/media/797e433ab948586e-s.p.dbea232f.woff2"
     ],
-    "[project]/frontend/frontend/src/app/page": [
+    "[project]/frontend/frontend/src/app/blog/edit/[id]/page": [
       "static/media/caa3a2e1cccd8315-s.p.853070df.woff2",
       "static/media/797e433ab948586e-s.p.dbea232f.woff2"
     ],
-    "[project]/frontend/frontend/src/app/profile/page": [
+    "[project]/frontend/frontend/src/app/blogs/page": [
       "static/media/caa3a2e1cccd8315-s.p.853070df.woff2",
       "static/media/797e433ab948586e-s.p.dbea232f.woff2"
     ]

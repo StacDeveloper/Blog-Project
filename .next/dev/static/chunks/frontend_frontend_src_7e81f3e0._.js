@@ -181,6 +181,8 @@ const AppProvider = ({ children })=>{
     const [loading, setloading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
     const [blogLoading, setBlogLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
     const [blog, setBlog] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [category, setCategory] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
+    const [searchQuery, setSearchQuery] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     async function fetchUser() {
         try {
             const token = __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$js$2d$cookie$2f$dist$2f$js$2e$cookie$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].get("token");
@@ -211,13 +213,20 @@ const AppProvider = ({ children })=>{
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "AppProvider.useEffect": ()=>{
             fetchUser();
-            fetchBlogs();
         }
     }["AppProvider.useEffect"], []);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "AppProvider.useEffect": ()=>{
+            fetchBlogs();
+        }
+    }["AppProvider.useEffect"], [
+        searchQuery,
+        category
+    ]);
     async function fetchBlogs() {
         setBlogLoading(true);
         try {
-            const { data: data_0 } = await __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].get(`${blog_service}/api/blog/blogs/allblogs`);
+            const { data: data_0 } = await __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].get(`${blog_service}/api/blog/blogs/allblogs?searchQuery=${searchQuery}&category=${category}`);
             setBlog(data_0);
             console.log(data_0);
         } catch (error_1) {
@@ -236,39 +245,44 @@ const AppProvider = ({ children })=>{
             setUser,
             logoutUser,
             blog,
-            blogLoading
+            blogLoading,
+            searchQuery,
+            setCategory,
+            setSearchQuery,
+            category,
+            fetchBlogs
         },
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f40$react$2d$oauth$2f$google$2f$dist$2f$index$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["GoogleOAuthProvider"], {
             clientId: `${("TURBOPACK compile-time value", "1002124356044-ob8q0g50b9actl4tmg6fknjj0lr0kkt8.apps.googleusercontent.com") || ""}`,
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Toaster"], {}, void 0, false, {
                     fileName: "[project]/frontend/frontend/src/context/appcontext.tsx",
-                    lineNumber: 122,
+                    lineNumber: 136,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 children
             ]
         }, void 0, true, {
             fileName: "[project]/frontend/frontend/src/context/appcontext.tsx",
-            lineNumber: 121,
+            lineNumber: 135,
             columnNumber: 13
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/frontend/frontend/src/context/appcontext.tsx",
-        lineNumber: 110,
+        lineNumber: 119,
         columnNumber: 10
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(AppProvider, "Fz0MnxPz22JJcnPuQJqmX1w3xzs=");
+_s(AppProvider, "YwFlKd9Hnmarns6aI4283glsC7c=");
 _c = AppProvider;
 const useAppData = ()=>{
     _s1();
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(1);
-    if ($[0] !== "b493efe053a0d39f3c065fecc3d24eedca705ce7cd0f9f3f0fd8998c362a5662") {
+    if ($[0] !== "ce11c23d30f533c45629ba1e99ea0eba55eb6333fb06f601bc42062c4aebc21e") {
         for(let $i = 0; $i < 1; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "b493efe053a0d39f3c065fecc3d24eedca705ce7cd0f9f3f0fd8998c362a5662";
+        $[0] = "ce11c23d30f533c45629ba1e99ea0eba55eb6333fb06f601bc42062c4aebc21e";
     }
     const context = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useContext"])(AppContext);
     if (!context) {

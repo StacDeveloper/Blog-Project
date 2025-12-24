@@ -203,6 +203,8 @@ const AppProvider = ({ children })=>{
     const [loading, setloading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
     const [blogLoading, setBlogLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
     const [blog, setBlog] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [category, setCategory] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
+    const [searchQuery, setSearchQuery] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     async function fetchUser() {
         try {
             const token = __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$js$2d$cookie$2f$dist$2f$js$2e$cookie$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].get("token");
@@ -232,12 +234,17 @@ const AppProvider = ({ children })=>{
     }
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         fetchUser();
-        fetchBlogs();
     }, []);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        fetchBlogs();
+    }, [
+        searchQuery,
+        category
+    ]);
     async function fetchBlogs() {
         setBlogLoading(true);
         try {
-            const { data } = await __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].get(`${blog_service}/api/blog/blogs/allblogs`);
+            const { data } = await __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].get(`${blog_service}/api/blog/blogs/allblogs?searchQuery=${searchQuery}&category=${category}`);
             setBlog(data);
             console.log(data);
         } catch (error) {
@@ -256,26 +263,31 @@ const AppProvider = ({ children })=>{
             setUser,
             logoutUser,
             blog,
-            blogLoading
+            blogLoading,
+            searchQuery,
+            setCategory,
+            setSearchQuery,
+            category,
+            fetchBlogs
         },
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f40$react$2d$oauth$2f$google$2f$dist$2f$index$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["GoogleOAuthProvider"], {
             clientId: `${("TURBOPACK compile-time value", "1002124356044-ob8q0g50b9actl4tmg6fknjj0lr0kkt8.apps.googleusercontent.com") || ""}`,
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Toaster"], {}, void 0, false, {
                     fileName: "[project]/frontend/frontend/src/context/appcontext.tsx",
-                    lineNumber: 115,
+                    lineNumber: 126,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 children
             ]
         }, void 0, true, {
             fileName: "[project]/frontend/frontend/src/context/appcontext.tsx",
-            lineNumber: 114,
+            lineNumber: 125,
             columnNumber: 13
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/frontend/frontend/src/context/appcontext.tsx",
-        lineNumber: 113,
+        lineNumber: 124,
         columnNumber: 9
     }, ("TURBOPACK compile-time value", void 0));
 };

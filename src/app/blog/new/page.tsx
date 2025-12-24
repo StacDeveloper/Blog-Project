@@ -9,16 +9,16 @@ import dynamic from 'next/dynamic'
 import { useMemo, useRef, useState } from 'react'
 import Cookies from 'js-cookie'
 import axios from 'axios'
-import { author } from '@/context/appcontext'
+import { author, useAppData } from '@/context/appcontext'
 import toast from 'react-hot-toast'
 
 
 const JoditEditor = dynamic(() => import('jodit-react'), { ssr: false })
 
 
-const BlogCategories = ["Technology", "Health", "Category Finance", "Travel", "Education", "Entertainment", "Animals", "United-Kingdom"]
+export const BlogCategories = ["Technology", "Health", "Category Finance", "Travel", "Education", "Entertainment", "Animals", "United-Kingdom"]
 
-interface formData {
+export interface formData {
   title: string,
   description: string,
   category: string,
@@ -59,6 +59,7 @@ const AddBlog = () => {
     image: null,
     blogcontent: ""
   })
+  const { fetchBlogs } = useAppData()
   const [Ai, setAi] = useState<boolean>(false)
   const [Aidescription, setAidescription] = useState<boolean>(false)
   const [AiBlog, SetAiBlog] = useState<boolean>(false)
@@ -96,6 +97,9 @@ const AddBlog = () => {
         blogcontent: ""
       })
       setContent("")
+      setTimeout(() => {
+        fetchBlogs()
+      }, 4000);
       setloading(false)
     } catch (error: any) {
       console.log("error while adding blog", error?.data?.message)

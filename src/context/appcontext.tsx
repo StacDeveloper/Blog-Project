@@ -38,11 +38,11 @@ interface AppProviderProps {
     children: React.ReactNode
 }
 
-interface BlogApiResponse{ 
-    blogs?:Blog | null
-    success?:string,
-    message?:string,
-    token?:string
+interface BlogApiResponse {
+    blogs?: Blog[] | null
+    success?: boolean,
+    message?: string,
+    token?: string
 }
 
 interface AppContextType {
@@ -53,8 +53,14 @@ interface AppContextType {
     setloading: React.Dispatch<React.SetStateAction<boolean>>
     setisAuth: React.Dispatch<React.SetStateAction<boolean>>,
     logoutUser: () => void
-    blog:Blog[] | null
-    blogLoading:boolean
+    blog: Blog[] | null
+    blogLoading: boolean
+    searchQuery: string
+    setSearchQuery: React.Dispatch<React.SetStateAction<string>>
+    setCategory: React.Dispatch<React.SetStateAction<string>>
+    category: string
+    fetchBlogs: () => void
+
 }
 const AppContext = createContext<AppContextType | undefined>(undefined)
 
@@ -65,6 +71,8 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     const [loading, setloading] = useState<boolean>(true)
     const [blogLoading, setBlogLoading] = useState<boolean>(true)
     const [blog, setBlog] = useState<Blog[] | null>(null)
+    const [category, setCategory] = useState("")
+    const [searchQuery, setSearchQuery] = useState("")
 
     async function fetchUser() {
         try {
@@ -93,13 +101,16 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
 
     useEffect(() => {
         fetchUser();
-        fetchBlogs()
     }, [])
+
+    useEffect(() => {
+        fetchBlogs()
+    }, [searchQuery, category])
 
     async function fetchBlogs() {
         setBlogLoading(true)
         try {
-            const { data } = await axios.get<BlogApiResponse>(`${blog_service}/api/blog/blogs/allblogs`)
+            const { data } = await axios.get<BlogApiResponse>(`${blog_service}/api/blog/blogs/allblogs?searchQuery=${searchQuery}&category=${category}`)
             setBlog(data)
             console.log(data)
         } catch (error) {
@@ -110,7 +121,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     }
 
     return (
-        <AppContext.Provider value={{ user, loading, isAuth, setloading, setisAuth, setUser, logoutUser, blog, blogLoading }}>
+        <AppContext.Provider value={{ user, loading, isAuth, setloading, setisAuth, setUser, logoutUser, blog, blogLoading, searchQuery, setCategory, setSearchQuery, category, fetchBlogs }}>
             <GoogleOAuthProvider clientId={`${process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || ""}`}>
                 <Toaster />
                 {children}

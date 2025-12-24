@@ -2986,55 +2986,63 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$
 ;
 ;
 const HomeLayout = (t0)=>{
-    const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(3);
-    if ($[0] !== "ce3b2b5803482137b6f79659fa382f419a5ce5ef18aaa97532e14f23fb54bc84") {
-        for(let $i = 0; $i < 3; $i += 1){
+    const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(4);
+    if ($[0] !== "b52253eff77ed424dad6d455bf15f133d603fd623e9ff3c4af11ca6134df55d5") {
+        for(let $i = 0; $i < 4; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "ce3b2b5803482137b6f79659fa382f419a5ce5ef18aaa97532e14f23fb54bc84";
+        $[0] = "b52253eff77ed424dad6d455bf15f133d603fd623e9ff3c4af11ca6134df55d5";
     }
     const { children } = t0;
     let t1;
-    if ($[1] !== children) {
-        t1 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+    if ($[1] === Symbol.for("react.memo_cache_sentinel")) {
+        t1 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$components$2f$ui$2f$sidebar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Sidebar"], {}, void 0, false, {
+            fileName: "[project]/frontend/frontend/src/components/ui/homelayout.tsx",
+            lineNumber: 21,
+            columnNumber: 10
+        }, ("TURBOPACK compile-time value", void 0));
+        $[1] = t1;
+    } else {
+        t1 = $[1];
+    }
+    let t2;
+    if ($[2] !== children) {
+        t2 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$components$2f$ui$2f$sidebar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SidebarProvider"], {
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$components$2f$ui$2f$sidebar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Sidebar"], {
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
+                children: [
+                    t1,
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
                         className: "w-full",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "w-full min-h-[calc(100vh-45)] px-4",
                             children: children
                         }, void 0, false, {
                             fileName: "[project]/frontend/frontend/src/components/ui/homelayout.tsx",
-                            lineNumber: 21,
-                            columnNumber: 66
+                            lineNumber: 28,
+                            columnNumber: 61
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/frontend/frontend/src/components/ui/homelayout.tsx",
-                        lineNumber: 21,
-                        columnNumber: 41
+                        lineNumber: 28,
+                        columnNumber: 36
                     }, ("TURBOPACK compile-time value", void 0))
-                }, void 0, false, {
-                    fileName: "[project]/frontend/frontend/src/components/ui/homelayout.tsx",
-                    lineNumber: 21,
-                    columnNumber: 32
-                }, ("TURBOPACK compile-time value", void 0))
-            }, void 0, false, {
+                ]
+            }, void 0, true, {
                 fileName: "[project]/frontend/frontend/src/components/ui/homelayout.tsx",
-                lineNumber: 21,
+                lineNumber: 28,
                 columnNumber: 15
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/frontend/frontend/src/components/ui/homelayout.tsx",
-            lineNumber: 21,
+            lineNumber: 28,
             columnNumber: 10
         }, ("TURBOPACK compile-time value", void 0));
-        $[1] = children;
-        $[2] = t1;
+        $[2] = children;
+        $[3] = t2;
     } else {
-        t1 = $[2];
+        t2 = $[3];
     }
-    return t1;
+    return t2;
 };
 _c = HomeLayout;
 const __TURBOPACK__default__export__ = HomeLayout;
