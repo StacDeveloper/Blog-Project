@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["C:/Users/user/Desktop/Blog Project/frontend/frontend/src/components/ui/loading.tsx"],"sourcesContent":["import React from 'react'\r\n\r\nconst Loading = () => {\r\n  return (\r\n    <div  className='w-[200px] m-auto mt-[200px]'>\r\n        <p className='text-2xl text-blue-500 font-bold text-center'>Loading...</p>\r\n    </div>\r\n  )\r\n}\r\n\r\nexport default Loading"],"names":["React","Loading","$","_c","$i","Symbol","for","t0"],"mappings":";;;;;;;;AAEA,gBAAgBC,CAAA;IAAA,MAAAC,CAAA,OAAAC,wMAAA,EAAA;IAAA,IAAAD,CAAA,CAAA,EAAA,KAAA,oEAAA;QAAA,IAAA,IAAAE,EAAA,GAAA,GAAAA,EAAA,GAAA,GAAAA,EAAA,IAAA,EAAA;YAAAF,CAAA,CAAAE,EAAA,CAAA,GAAAC,MAAA,CAAAC,GAAA,CAAA;QAAA;QAAAJ,CAAA,CAAA,EAAA,GAAA;IAAA;IAAA,IAAAK,EAAA;IAAA,IAAAL,CAAA,CAAA,EAAA,KAAAG,MAAA,CAAAC,GAAA,CAAA,8BAAA;QAEZC,EAAA,iBAAA,qNAAA,GAEM;YAFU,SAA6B,EAA7B,6BAA6B;oCACzC,qNAAA,CAA0E;gBAA7D,SAA8C,EAA9C,8CAA8C;0BAAC,UAAU,EAAtE,CAA0E,CAC9E,EAFA,GAEM;;;;;;;;;;;QAAAL,CAAA,CAAA,EAAA,GAAAK,EAAA;IAAA,OAAA;QAAAA,EAAA,GAAAL,CAAA,CAAA,EAAA;IAAA;IAAA,OAFNK,EAEM;AAAA,CAET;KANKN,OAAO;uCAQEA,OAAO","ignoreList":[]}},
-    {"offset": {"line": 59, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/user/Desktop/Blog%20Project/frontend/frontend/node_modules/next/navigation.js"],"sourcesContent":["module.exports = require('./dist/client/components/navigation')\n"],"names":[],"mappings":"AAAA,OAAO,OAAO","ignoreList":[0]}}]
-}
