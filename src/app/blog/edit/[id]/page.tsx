@@ -57,35 +57,35 @@ const EditParamsPage = () => {
         placeholder: 'Start typings...'
     }), [])
 
-
+    const fetchBlog = async () => {
+        setloading(true)
+        try {
+            const token = Cookies.get("token")
+            const { data } = await axios.get<Blogresponse>(`${blog_service}/api/blog/blogs/${id}`)
+            const blog = data.blog
+            SetformData({
+                title: blog.title,
+                description: blog.description,
+                category: blog.category,
+                image: null,
+                blogcontent: blog.blogcontent
+            })
+            console.log(blog)
+            setContent(blog.blogcontent)
+            SetExistingImage(blog.image ? blog.image : null)
+            setTimeout(() => {
+                fetchBlogs()
+            }, 4000);
+        } catch (error) {
+            console.log(error)
+        } finally {
+            setloading(false)
+        }
+    }
 
 
     useEffect(() => {
-        const fetchBlog = async () => {
-            setloading(true)
-            try {
-                const token = Cookies.get("token")
-                const { data } = await axios.get<Blogresponse>(`${blog_service}/api/blog/blogs/${id}`)
-                const blog = data.blog
-                SetformData({
-                    title: blog.title,
-                    description: blog.description,
-                    category: blog.category,
-                    image: null,
-                    blogcontent: blog.blogcontent
-                })
-                console.log(blog)
-                setContent(blog.blogcontent)
-                SetExistingImage(blog.image ? blog.image : null)
-                setTimeout(() => {
-                    fetchBlogs()
-                }, 4000);
-            } catch (error) {
-                console.log(error)
-            } finally {
-                setloading(false)
-            }
-        }
+
         if (id) {
             fetchBlog()
         }
@@ -114,13 +114,12 @@ const EditParamsPage = () => {
                 blogcontent: ""
             })
             setContent("")
-            
         } catch (error: any) {
             console.log(error)
             toast.error(error.message)
         } finally {
             router.push(`/blog/${id}`)
-            setloading(false)
+            fetchBlog()
         }
     }
 

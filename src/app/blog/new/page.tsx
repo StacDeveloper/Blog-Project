@@ -63,6 +63,7 @@ const AddBlog = () => {
   const [Ai, setAi] = useState<boolean>(false)
   const [Aidescription, setAidescription] = useState<boolean>(false)
   const [AiBlog, SetAiBlog] = useState<boolean>(false)
+  const Inputref = useRef<HTMLInputElement>(null)
 
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -172,7 +173,9 @@ const AddBlog = () => {
     }
   }
 
-
+  const handleImageUpload = () => {
+    Inputref.current?.click()
+  }
 
   const config = useMemo(() => ({
     readonly: false, // all options from https://xdsoft.net/jodit/docs/,

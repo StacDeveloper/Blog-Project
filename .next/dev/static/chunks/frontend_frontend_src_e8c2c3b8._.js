@@ -1184,6 +1184,8 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "use strict";
 
 __turbopack_context__.s([
+    "BlogCategories",
+    ()=>BlogCategories,
     "default",
     ()=>__TURBOPACK__default__export__
 ]);
@@ -1247,9 +1249,11 @@ const AddBlog = ()=>{
         image: null,
         blogcontent: ""
     });
+    const { fetchBlogs } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$context$2f$appcontext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAppData"])();
     const [Ai, setAi] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [Aidescription, setAidescription] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [AiBlog, SetAiBlog] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const Inputref = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const handleInputChange = (e)=>{
         SetformData({
             ...formData,
@@ -1291,6 +1295,9 @@ const AddBlog = ()=>{
                 blogcontent: ""
             });
             setContent("");
+            setTimeout(()=>{
+                fetchBlogs();
+            }, 4000);
             setloading(false);
         } catch (error) {
             console.log("error while adding blog", error?.data?.message);
@@ -1381,6 +1388,9 @@ const AddBlog = ()=>{
             SetAiBlog(false);
         }
     };
+    const handleImageUpload = ()=>{
+        Inputref.current?.click();
+    };
     const config = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"])({
         "AddBlog.useMemo[config]": ()=>({
                 readonly: false,
@@ -1398,12 +1408,12 @@ const AddBlog = ()=>{
                         children: "Add New Blog"
                     }, void 0, false, {
                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                        lineNumber: 204,
+                        lineNumber: 214,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                    lineNumber: 203,
+                    lineNumber: 213,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1415,7 +1425,7 @@ const AddBlog = ()=>{
                                 children: "Title"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                lineNumber: 210,
+                                lineNumber: 220,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1430,7 +1440,7 @@ const AddBlog = ()=>{
                                         className: `${Ai ? "animate-pulse placeholder:opacity-60" : ""}`
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                        lineNumber: 212,
+                                        lineNumber: 222,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     " ",
@@ -1442,25 +1452,25 @@ const AddBlog = ()=>{
                                             className: `${Ai ? "animate-spin" : ""}`
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                            lineNumber: 212,
+                                            lineNumber: 222,
                                             columnNumber: 294
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                        lineNumber: 212,
+                                        lineNumber: 222,
                                         columnNumber: 232
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                lineNumber: 211,
+                                lineNumber: 221,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
                                 children: "Description"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                lineNumber: 215,
+                                lineNumber: 225,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1474,7 +1484,7 @@ const AddBlog = ()=>{
                                         onChange: handleInputChange
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                        lineNumber: 217,
+                                        lineNumber: 227,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     formData.title === "" ? "" : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1484,25 +1494,25 @@ const AddBlog = ()=>{
                                             className: `${Aidescription ? "animate-spin" : ""}`
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                            lineNumber: 218,
+                                            lineNumber: 228,
                                             columnNumber: 110
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                        lineNumber: 218,
+                                        lineNumber: 228,
                                         columnNumber: 45
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                lineNumber: 216,
+                                lineNumber: 226,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
                                 children: "Category"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                lineNumber: 220,
+                                lineNumber: 230,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -1516,12 +1526,12 @@ const AddBlog = ()=>{
                                             placeholder: formData.category || "Select Category"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                            lineNumber: 226,
+                                            lineNumber: 236,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                        lineNumber: 225,
+                                        lineNumber: 235,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1530,18 +1540,18 @@ const AddBlog = ()=>{
                                                 children: blog_0
                                             }, index, false, {
                                                 fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                                lineNumber: 229,
+                                                lineNumber: 239,
                                                 columnNumber: 74
                                             }, ("TURBOPACK compile-time value", void 0)))
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                        lineNumber: 228,
+                                        lineNumber: 238,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                lineNumber: 221,
+                                lineNumber: 231,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1550,7 +1560,7 @@ const AddBlog = ()=>{
                                         children: "Image Upload"
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                        lineNumber: 233,
+                                        lineNumber: 243,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1559,13 +1569,13 @@ const AddBlog = ()=>{
                                         onChange: handleFileChange
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                        lineNumber: 234,
+                                        lineNumber: 244,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                lineNumber: 232,
+                                lineNumber: 242,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1574,7 +1584,7 @@ const AddBlog = ()=>{
                                         children: "Blog Content"
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                        lineNumber: 237,
+                                        lineNumber: 247,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1594,7 +1604,7 @@ const AddBlog = ()=>{
                                                             className: `${AiBlog ? "animate-spin" : ""}`
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                                            lineNumber: 242,
+                                                            lineNumber: 252,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1602,24 +1612,24 @@ const AddBlog = ()=>{
                                                             children: "Fix Grammer"
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                                            lineNumber: 243,
+                                                            lineNumber: 253,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                                    lineNumber: 241,
+                                                    lineNumber: 251,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                            lineNumber: 239,
+                                            lineNumber: 249,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                        lineNumber: 238,
+                                        lineNumber: 248,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(JoditEditor, {
@@ -1635,13 +1645,13 @@ const AddBlog = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                        lineNumber: 247,
+                                        lineNumber: 257,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                lineNumber: 236,
+                                lineNumber: 246,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1651,33 +1661,37 @@ const AddBlog = ()=>{
                                 children: loading ? "...Submitting" : "Submit"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                                lineNumber: 254,
+                                lineNumber: 264,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                        lineNumber: 209,
+                        lineNumber: 219,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-                    lineNumber: 208,
+                    lineNumber: 218,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-            lineNumber: 202,
+            lineNumber: 212,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/frontend/frontend/src/app/blog/new/page.tsx",
-        lineNumber: 201,
+        lineNumber: 211,
         columnNumber: 10
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(AddBlog, "GTezUSwkbTEcbVrV0mMi7oCx8cU=");
+_s(AddBlog, "u6UBChhqhNFE2ZhCFGVxRGM0dpc=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$frontend$2f$src$2f$context$2f$appcontext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAppData"]
+    ];
+});
 _c1 = AddBlog;
 const __TURBOPACK__default__export__ = AddBlog;
 var _c, _c1;

@@ -45,6 +45,14 @@ interface BlogApiResponse {
     token?: string
 }
 
+interface BlogsSaved {
+    id: string
+    blogs?: Blog
+    userid: string
+    blogid: string
+    created_at: string
+}
+
 interface AppContextType {
     user: User | null
     loading: boolean,
@@ -60,6 +68,9 @@ interface AppContextType {
     setCategory: React.Dispatch<React.SetStateAction<string>>
     category: string
     fetchBlogs: () => void
+    setsavedBlogs: React.Dispatch<React.SetStateAction<BlogsSaved[]>> | null
+    savedBlogs: BlogsSaved[] | null
+    fetchSavedBlogs: () => void
 
 }
 const AppContext = createContext<AppContextType | undefined>(undefined)
@@ -73,6 +84,18 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     const [blog, setBlog] = useState<Blog[] | null>(null)
     const [category, setCategory] = useState("")
     const [searchQuery, setSearchQuery] = useState("")
+    const [savedBlogs, setsavedBlogs] = useState<BlogsSaved[]>([])
+
+    async function fetchSavedBlogs() {
+        try {
+            const token = Cookies.get("token")
+            const { data } = await axios.get<BlogsSaved>(`${blog_service}/api/blog/blogs/saved/all`, { headers: { Authorization: `Bearer ${token}` } })
+            console.log(data.blogs)
+            setsavedBlogs(data.blogs)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     async function fetchUser() {
         try {
@@ -101,6 +124,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
 
     useEffect(() => {
         fetchUser();
+        fetchSavedBlogs()
     }, [])
 
     useEffect(() => {
@@ -121,7 +145,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     }
 
     return (
-        <AppContext.Provider value={{ user, loading, isAuth, setloading, setisAuth, setUser, logoutUser, blog, blogLoading, searchQuery, setCategory, setSearchQuery, category, fetchBlogs }}>
+        <AppContext.Provider value={{ user, loading, isAuth, setloading, setisAuth, setUser, logoutUser, blog, blogLoading, searchQuery, setCategory, setSearchQuery, category, fetchBlogs, fetchSavedBlogs, setsavedBlogs, savedBlogs }}>
             <GoogleOAuthProvider clientId={`${process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || ""}`}>
                 <Toaster />
                 {children}

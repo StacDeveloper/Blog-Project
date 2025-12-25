@@ -5,10 +5,19 @@ import { useSidebar } from '@/components/ui/sidebar'
 import { useAppData } from '@/context/appcontext'
 import { Button } from '@/components/ui/button'
 import BlogCard from '@/components/blogcard'
+import { redirect, useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 
 const Blogs = () => {
     const { loading, isAuth, blog, blogLoading } = useAppData()
     const { toggleSidebar } = useSidebar()
+    const router = useRouter()
+
+    useEffect(() => {
+        if (!isAuth) {
+            router.push("/login")
+        }
+    },[isAuth, router])
     return (
         <div>
             <div>
@@ -22,8 +31,8 @@ const Blogs = () => {
                     </div>
                     {blogLoading ? <Loading /> : <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3'>
                         {blog?.length === 0 && <p>No Blogs Yet</p>}
-                        {Array.isArray(blog) &&  blog && blog.map((blog, index) => {
-                            return <BlogCard key={index} image={blog.image} title={blog.title} description={blog.description} id={blog.id} time={blog.created_at}/>
+                        {Array.isArray(blog) && blog && blog.map((blog, index) => {
+                            return <BlogCard key={index} image={blog.image} title={blog.title} description={blog.description} id={blog.id} time={blog.created_at} />
                         })}
                     </div>}
                 </div>
