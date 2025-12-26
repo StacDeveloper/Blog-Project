@@ -7,9 +7,9 @@ import toast, { Toaster } from "react-hot-toast"
 import { GoogleOAuthProvider } from "@react-oauth/google"
 
 
-export const user_service = "http://localhost:5000"
-export const blog_service = "http://localhost:5002"
-export const author = "http://localhost:5001"
+export const user_service = `${process.env.NEXT_PUBLIC_USER_SERVICE}`
+export const blog_service = `${process.env.NEXT_PUBLIC_BLOG_SERVICE}`
+export const author = `${process.env.NEXT_PUBLIC_AUTHOR_SERVICE}`
 
 
 export interface User {
@@ -45,12 +45,15 @@ interface BlogApiResponse {
     token?: string
 }
 
-interface BlogsSaved {
-    id: string
-    blogs?: Blog
-    userid: string
+interface SavedBlog {
     blogid: string
-    created_at: string
+    created_at: Date
+    id: number
+    userid: string
+    username: string
+}
+interface BlogsSaved {
+    savedBlog: SavedBlog[]
 }
 
 interface AppContextType {
@@ -61,15 +64,15 @@ interface AppContextType {
     setloading: React.Dispatch<React.SetStateAction<boolean>>
     setisAuth: React.Dispatch<React.SetStateAction<boolean>>,
     logoutUser: () => void
-    blog: Blog[] | null
+    blog: Blog[]
     blogLoading: boolean
     searchQuery: string
     setSearchQuery: React.Dispatch<React.SetStateAction<string>>
     setCategory: React.Dispatch<React.SetStateAction<string>>
     category: string
     fetchBlogs: () => void
-    setsavedBlogs: React.Dispatch<React.SetStateAction<BlogsSaved[]>> | null
-    savedBlogs: BlogsSaved[] | null
+    setsavedBlogs: React.Dispatch<React.SetStateAction<BlogsSaved[]>>
+    savedBlogs: BlogsSaved[]
     fetchSavedBlogs: () => void
 
 }
@@ -81,7 +84,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     const [isAuth, setisAuth] = useState<boolean>(false)
     const [loading, setloading] = useState<boolean>(true)
     const [blogLoading, setBlogLoading] = useState<boolean>(true)
-    const [blog, setBlog] = useState<Blog[] | null>(null)
+    const [blog, setBlog] = useState<Blog[]>([])
     const [category, setCategory] = useState("")
     const [searchQuery, setSearchQuery] = useState("")
     const [savedBlogs, setsavedBlogs] = useState<BlogsSaved[]>([])
@@ -90,7 +93,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
         try {
             const token = Cookies.get("token")
             const { data } = await axios.get<BlogsSaved>(`${blog_service}/api/blog/blogs/saved/all`, { headers: { Authorization: `Bearer ${token}` } })
-            console.log(data.blogs)
+            console.log(data)
             setsavedBlogs(data.blogs)
         } catch (error) {
             console.log(error)

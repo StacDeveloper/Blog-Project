@@ -46,7 +46,7 @@ type saveblogresponse = {
     message: string
 }
 
-
+const author_service = `${process.env.NEXT_PUBLIC_AUTHOR_SERVICE}`
 var token = Cookies.get("token")
 
 const BlogAuthorPage = () => {
@@ -59,7 +59,7 @@ const BlogAuthorPage = () => {
     const router = useRouter()
     const [comment, SetComment] = useState<string>("")
     const [blogLoading, setblogLoading] = useState<boolean>(false)
-    const author_service = "http://localhost:5001"
+    
     const [postedComments, SetPostedComments] = useState<postedComment[]>([])
     const [saved, Setsaved] = useState<boolean>(false)
     const [savedLoading, SetsavedLoading] = useState<boolean>(false)
@@ -79,7 +79,8 @@ const BlogAuthorPage = () => {
             SetCommentLoading(false)
         }
     }
-
+    console.log(blog_service)
+    console.log(author_service)
     useEffect(() => {
         if (savedBlogs && savedBlogs.some((blog) => blog.blogid === id)) {
             Setsaved(true)
