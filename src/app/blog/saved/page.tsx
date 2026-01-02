@@ -2,7 +2,7 @@
 
 import BlogCard from "@/components/blogcard"
 import Loading from "@/components/ui/loading"
-import { useAppData } from "@/context/appcontext"
+import { BlogsSaved, useAppData } from "@/context/appcontext"
 
 
 const SavedPage = () => {
@@ -14,7 +14,7 @@ const SavedPage = () => {
 
     
     
-    const filteredBlogs = blog.filter((e) => savedBlogs.some((savedb) => savedb.blogid === e.id.toString())
+    const filteredBlogs = blog.filter((e) => savedBlogs.some((savedb:BlogsSaved | any) => savedb.blogid === e.id.toString())
     )
     console.log(filteredBlogs)
     return (

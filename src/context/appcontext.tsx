@@ -52,8 +52,8 @@ interface SavedBlog {
     userid: string
     username: string
 }
-interface BlogsSaved {
-    savedBlog: SavedBlog[]
+export interface BlogsSaved {
+    savedBlog: SavedBlog[] 
 }
 
 interface AppContextType {
@@ -92,7 +92,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     async function fetchSavedBlogs() {
         try {
             const token = Cookies.get("token")
-            const { data } = await axios.get<BlogsSaved>(`${blog_service}/api/blog/blogs/saved/all`, { headers: { Authorization: `Bearer ${token}` } })
+            const { data } = await axios.get<BlogsSaved | any>(`${blog_service}/api/blog/blogs/saved/all`, { headers: { Authorization: `Bearer ${token}` } })
             console.log(data)
             setsavedBlogs(data.blogs)
         } catch (error) {
@@ -137,7 +137,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     async function fetchBlogs() {
         setBlogLoading(true)
         try {
-            const { data } = await axios.get<BlogApiResponse>(`${blog_service}/api/blog/blogs/allblogs?searchQuery=${searchQuery}&category=${category}`)
+            const { data } = await axios.get<BlogApiResponse | any>(`${blog_service}/api/blog/blogs/allblogs?searchQuery=${searchQuery}&category=${category}`)
             setBlog(data)
             console.log(data)
         } catch (error) {
