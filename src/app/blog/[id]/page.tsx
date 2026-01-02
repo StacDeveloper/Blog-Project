@@ -1,6 +1,6 @@
 "use client"
 import Loading from '@/components/ui/loading'
-import { Blog, blog_service, useAppData, User } from '@/context/appcontext'
+import { Blog, blog_service, BlogsSaved, useAppData, User } from '@/context/appcontext'
 import { useParams, useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
@@ -82,7 +82,7 @@ const BlogAuthorPage = () => {
     console.log(blog_service)
     console.log(author_service)
     useEffect(() => {
-        if (savedBlogs && savedBlogs.some((blog) => blog.blogid === id)) {
+        if (savedBlogs && savedBlogs.some((blog:BlogsSaved | any) => blog.blogid === id)) {
             Setsaved(true)
         } else {
             Setsaved(false)

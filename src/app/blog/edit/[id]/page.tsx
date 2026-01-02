@@ -15,7 +15,7 @@ import { RefreshCw } from 'lucide-react'
 import { useParams, useRouter } from 'next/navigation'
 
 interface Blogresponse {
-    blog: formData
+    blog: formData | any
     token: string,
     success: boolean
     existingImage?: string
