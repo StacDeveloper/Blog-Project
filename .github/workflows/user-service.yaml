@@ -1,0 +1,75 @@
+name: User Service CI/CD
+
+on:
+  push:
+    paths:
+      - "services/user-service/**"
+  workflow_dispatch:
+
+env:
+  AWS_REGION: eu-north-1
+  ECR_REPOSITORY: user-service
+  CLUSTER_NAME: user-service
+
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+
+    permission:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+    # ---------TEST-----------
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      
+      - name: Install deps
+        working-directory: services/user-service
+        run: npm ci
+      
+      - name: Run tests
+        working-directory: services/user-service
+        run: npm test
+      
+  # ---------BUILD------------
+      - name: Configure AWS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{secrets.AWS_ROLE}}
+          aws-region: ${{env.AWS_REGION}}
+
+      - name: Login to ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+        
+      - name: Build & push image
+        working-directory: services/user-service
+        env:
+          ECR_REGISTRY: ${{steps.login-ecr.outputs.registry}}
+          IMAGE_TAG: ${{github.sha}}
+        run: |
+          IMAGE=${{github.sha}}
+          docker build -t $ECR_REPO:IMAGE .
+          docker tag $ECR_REPO:IMAGE $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPO:$IMAGE
+          docker push $AWS_ACCOUNT_ID:dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPO:$IMAGE
+  # ------------Deploy--------
+      - name: Configure kubectl
+        run: |
+         aws eks update-kubeconfig --name ${{env.CLUSTER_NAME}} --region ${{env.AWS_REGION}}
+
+      - name: Update rollout image
+        env:
+          ECR_REGISTRY: ${{steps.login-ecr.outputs.registry}}
+          IMAGE_TAG: ${{github.sha}}
+        run: |
+          kubectl set image rollout/user-id user-id=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPO:${{github.sha}}
+          kubectl rollout status deployment/user-service
+
+  
+
