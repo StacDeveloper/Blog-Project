@@ -4,6 +4,7 @@ node_modules
 .env.local
 .env.*local
 .dockerignore
+<<<<<<< HEAD
 dockerfile
 .vscode
 .next/
@@ -19,3 +20,6 @@ dockerfile
 
 # API keys
 *.key
+=======
+dockerfile
+>>>>>>> 80cc4b258952fdc22dc8d92febd33827da746a8c
