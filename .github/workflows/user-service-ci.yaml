@@ -25,6 +25,11 @@ jobs:
        working-directory: services/user-service
        run: npm ci
 
+     - name: Build Project
+       working-directory: services/user-service
+       run: |
+        npm run build  
+
      - name: Run tests
        working-directory: services/user-service
        run: |
