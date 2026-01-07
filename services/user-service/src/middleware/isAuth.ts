@@ -6,6 +6,9 @@ export interface AuthenticatedReq extends Request {
     user?: Iuser | null
 }
 
+type Token = string
+
+
 export const isAuth = async (req: AuthenticatedReq, res: Response, next: NextFunction): Promise<void> => {
     try {
         const authHeader = req.headers.authorization
@@ -15,7 +18,10 @@ export const isAuth = async (req: AuthenticatedReq, res: Response, next: NextFun
             return
         }
 
-        const token = authHeader.split(" ")[1]
+        const token: Token = authHeader.split(" ")[1]!
+        if (!token) {
+            res.status(401).json({ success: false, message: "Token is not available" })
+        }
         const decodevalue = jwt.verify(token, process.env.JWT_SEC! as string) as JwtPayload
 
         if (!decodevalue || !decodevalue.user) {
