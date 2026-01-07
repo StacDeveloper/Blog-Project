@@ -8,13 +8,15 @@ import cors from "cors"
 dotenv.config()
 
 const app = express()
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 5000
 
 app.use(express.json())
 app.use(cors())
 
-await connectDB()
-await cloudConfiguration()
+if (process.env.NODE_ENV !== "test") {
+    await connectDB()
+    await cloudConfiguration()
+}
 
 app.use("/api/user", userRouter)
 app.use("/try", (req, res) => {
