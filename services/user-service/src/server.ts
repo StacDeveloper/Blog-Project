@@ -17,7 +17,7 @@ await connectDB()
 await cloudConfiguration()
 
 app.use("/api/user", userRouter)
-app.use("/try", (req, res) => {
+app.use("/", (req, res) => {
     res.json({ success: true, message: "Trying CI/CD" })
 })
 
