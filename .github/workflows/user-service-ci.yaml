@@ -39,3 +39,18 @@ jobs:
      - name: Health check endpoint
        run: |
           curl -f http://localhost:5000
+  cd-build:
+    needs: ci
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set Up Docker
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Build Docker Image
+        working-directory: services/user-service
+        run: |
+          docker build -t user-service:ci-test .
