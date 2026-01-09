@@ -55,8 +55,9 @@ jobs:
          pwd
          ls
          ls services
-         ls services/user-service       
+         ls services/user-service
+       
       - name: Build Docker Image
-        working-directory: services/user-service
+        working-directory: ./services/user-service
         run: |
           docker build -t user-service:ci-test .
