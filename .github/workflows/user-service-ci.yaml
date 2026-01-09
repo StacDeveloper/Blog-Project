@@ -47,7 +47,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Set Up Docker
+      - name: Set Up docker
         uses: docker/setup-buildx-action@v3
       
       - name: Build Docker Image
