@@ -38,7 +38,7 @@ jobs:
 
      - name: Health check endpoint
        run: |
-          curl -f http://localhost:5000/test
+          curl -f http://localhost:5000
   cd-build:
     needs: ci
     runs-on: ubuntu-latest
