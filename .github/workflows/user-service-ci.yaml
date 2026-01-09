@@ -9,9 +9,6 @@ on:
 jobs:
   ci:
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      contents: read
     env:
       NODE_ENV: test
     steps:
@@ -43,6 +40,9 @@ jobs:
        run: |
           curl -f http://localhost:5000/try
   cd-build:
+    permissions:
+      id-token: write
+      contents: read
     needs: ci
     runs-on: ubuntu-latest
 
