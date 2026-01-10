@@ -10,18 +10,20 @@ dotenv.config()
 
 const app = express()
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 5002
 app.use(express.json())
 app.use(cors())
-await redisClient
-startCacheConsumer()
+if (process.env.NODE_ENV !== "test") {
+    await redisClient
+    startCacheConsumer()
+}
 console.log("redis initialized")
 app.use("/api/blog", blogRouter)
-app.use("/try", (req,res)=>{
-    res.status(200).json({success:true, message:"Trying ci/cd is working"})
+app.use("/try", (req, res) => {
+    res.status(200).json({ success: true, message: "Trying ci/cd is working" })
 })
-app.use("/health",(req,res)=>{
-    res.status(200).json({success:true, message: "Blog service is healthy"})
+app.use("/health", (req, res) => {
+    res.status(200).json({ success: true, message: "Blog service is healthy" })
 })
 // asdasdasdasdsad
 app.listen(PORT, () => {
