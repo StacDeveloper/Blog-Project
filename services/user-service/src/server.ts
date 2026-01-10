@@ -26,6 +26,10 @@ app.use("/health", (req, res) => {
     res.status(200).json({ success: true, message: "User-service is working" })
 })
 
+app.use("/mandem", (req,res)=>{
+    res.status(200).json({success:true, message:"Hellow from mandem"})
+})
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`)
 })
