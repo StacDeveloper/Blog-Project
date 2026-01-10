@@ -17,10 +17,13 @@ if (process.env.NODE_ENV !== "test") {
     await connectDB()
     await cloudConfiguration()
 }
-// aaaaaaaaaaaaaaaaaaaaaasdasdasd
+// aaaaaaaaaaaaaaaaaaaaaasdasdas
 app.use("/api/user", userRouter)
 app.use("/try", (req, res) => {
     res.json({ success: true, message: "Trying CI/CD" })
+})
+app.use("/health", (req, res) => {
+    res.status(200).json({ success: true, message: "User-service is working" })
 })
 
 app.listen(PORT, () => {
