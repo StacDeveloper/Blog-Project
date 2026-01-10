@@ -92,7 +92,7 @@ jobs:
       
       - name: Update Kubernetes Deployment
         run: |
-          kubectl set image deployment/user-service user-service=$ECR_REGISTRY/$ECR_REPO:$IMAGE_TAG
+          kubectl set image deployment/user-service user-service=$ECR_REGISTRY/$ECR_REPO:$IMAGE_TAG -n user-service
           kubectl rollout status deployment/user-service
         env:
           ECR_REGISTRY: ${{steps.login-ecr.outputs.registry}}
