@@ -17,7 +17,13 @@ await redisClient
 startCacheConsumer()
 console.log("redis initialized")
 app.use("/api/blog", blogRouter)
-
+app.use("/try", (req,res)=>{
+    res.status(200).json({success:true, message:"Trying ci/cd is working"})
+})
+app.use("/health",(req,res)=>{
+    res.status(200).json({success:true, message: "Blog service is healthy"})
+})
+// asdasdasdasdsad
 app.listen(PORT, () => {
     console.log(`Blog Service running on http://localhost:${PORT}`)
 })
