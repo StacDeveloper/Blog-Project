@@ -38,7 +38,7 @@ jobs:
         
       - name: Health check endpoints 
         run: |
-          curl -f http://localhost:5002
+          curl -f http://localhost:5002/try
   cd-build:
     permissions:
       id-token: write
