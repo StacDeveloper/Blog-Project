@@ -1,0 +1,102 @@
+name: Blog-service CI
+
+on:
+  push:
+    paths:
+      - "services/blog/**"
+  workflow_dispatch:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    env:
+      NODE_ENV: test
+    steps:
+      - name: Checkout code 
+        uses: actions/checkout@v4 
+
+      - name: Setup Node.js 
+        uses: actions/setup-node@v4 
+        with:
+          node-version: 22
+          cache: npm
+        
+      - name: Install Dependencies 
+        working-directory: services/blog
+        run: npm ci 
+
+      - name: Build Project 
+        working-directory: services/blog 
+        run: |
+          npm run build 
+        
+      - name: Run Tests 
+        working-directory: services/blog 
+        run : |
+          npm start & 
+            sleep 5
+        
+      - name: Health check endpoints 
+        run: |
+          curl -f http://localhost:5002
+  cd-build:
+    permissions:
+      id-token: write
+      contents: read
+    needs: ci
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Docker
+        uses: docker/setup-buildx-action@v3
+
+      - name: Debug Docker context
+        run: |
+          pwd
+          ls
+          ls services
+          ls services/blog
+
+      - name: Build Docker Image 
+        working-directory: ./services/blog 
+        run: |
+          docker build -t blog-service:ci .
+
+      - name: Configure AWS 
+        uses: aws-actions/configure-aws-credentials@v4 
+        with:
+          role-to-assume: ${{secrets.AWS_ROLE}}
+          aws-region: eu-north-1
+
+      - name: Login to ECR
+        id: login-ecr 
+        uses: aws/actions/amazon-ecr-login@v2     
+
+      - name: Build Docker Image and Push
+        working-directory: services/blog
+        env:
+          ECR_REGISTRY: ${{steps.login-ecr.outputs.registry}}
+          IMAGE_TAG: ${{github.sha}}
+        run: |
+          IMAGE=${{github.sha}}
+          ECR_REPO=blog
+          docker build -t $ECR_REPO:$IMAGE .
+          docker tag $ECR_REPO:$IMAGE $ECR_REGISTRY/$ECR_REPO:$IMAGE 
+          docker push $ECR_REGISTRY/$ECR_REPO:$IMAGE
+
+      - name: Configure kubectl
+        run: |
+          aws eks update-kubeconfig --name blog --region eu-north-1 
+      
+      - name: Update Kubernetes Deployment
+        run: |
+          kubectl set image deployment/blog blog=$ECR_REGISTRY/$ECR_REPO:$IMAGE_TAG -n blog-app-service
+        env:
+          ECR_REGISTRY: ${{steps.login-ecr.outputs.registry}}
+          IMAGE_TAG: ${{github.sha}}
+          ECR_REPO: blog
+
+    
