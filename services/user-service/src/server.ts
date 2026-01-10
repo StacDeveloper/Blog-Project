@@ -17,7 +17,7 @@ if (process.env.NODE_ENV !== "test") {
     await connectDB()
     await cloudConfiguration()
 }
-// aaaaaaaaaaaaaaaaaaaaaasdasdas
+// aaaaaaaaaaaaaaaaaaaaaasdasda
 app.use("/api/user", userRouter)
 app.use("/try", (req, res) => {
     res.json({ success: true, message: "Trying CI/CD" })
