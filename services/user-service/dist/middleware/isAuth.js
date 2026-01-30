@@ -7,6 +7,9 @@ export const isAuth = async (req, res, next) => {
             return;
         }
         const token = authHeader.split(" ")[1];
+        if (!token) {
+            res.status(401).json({ success: false, message: "Token is not available" });
+        }
         const decodevalue = jwt.verify(token, process.env.JWT_SEC);
         if (!decodevalue || !decodevalue.user) {
             res.status(401).json({ success: false, message: "Invalid token" });

@@ -7,9 +7,9 @@ import toast, { Toaster } from "react-hot-toast"
 import { GoogleOAuthProvider } from "@react-oauth/google"
 
 
-export const user_service = "http://localhost:5000"
-export const blog_service = "http://localhost:5002"
-export const author = "http://localhost:5001"
+export const user_service = `${process.env.NEXT_PUBLIC_USER_SERVICE}`  
+export const blog_service = `${process.env.NEXT_PUBLIC_BLOG_SERVICE}` 
+export const author = `${process.env.NEXT_PUBLIC_AUTHOR_SERVICE}`
 
 
 export interface User {
@@ -38,11 +38,22 @@ interface AppProviderProps {
     children: React.ReactNode
 }
 
-interface BlogApiResponse{ 
-    blogs?:Blog | null
-    success?:string,
-    message?:string,
-    token?:string
+interface BlogApiResponse {
+    blogs?: Blog[] | null
+    success?: boolean,
+    message?: string,
+    token?: string
+}
+
+interface SavedBlog {
+    blogid: string
+    created_at: Date
+    id: number
+    userid: string
+    username: string
+}
+export interface BlogsSaved {
+    savedBlog: SavedBlog[] 
 }
 
 interface AppContextType {
@@ -53,8 +64,17 @@ interface AppContextType {
     setloading: React.Dispatch<React.SetStateAction<boolean>>
     setisAuth: React.Dispatch<React.SetStateAction<boolean>>,
     logoutUser: () => void
-    blog:Blog[] | null
-    blogLoading:boolean
+    blog: Blog[]
+    blogLoading: boolean
+    searchQuery: string
+    setSearchQuery: React.Dispatch<React.SetStateAction<string>>
+    setCategory: React.Dispatch<React.SetStateAction<string>>
+    category: string
+    fetchBlogs: () => void
+    setsavedBlogs: React.Dispatch<React.SetStateAction<BlogsSaved[]>>
+    savedBlogs: BlogsSaved[]
+    fetchSavedBlogs: () => void
+
 }
 const AppContext = createContext<AppContextType | undefined>(undefined)
 
@@ -64,7 +84,21 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     const [isAuth, setisAuth] = useState<boolean>(false)
     const [loading, setloading] = useState<boolean>(true)
     const [blogLoading, setBlogLoading] = useState<boolean>(true)
-    const [blog, setBlog] = useState<Blog[] | null>(null)
+    const [blog, setBlog] = useState<Blog[]>([])
+    const [category, setCategory] = useState("")
+    const [searchQuery, setSearchQuery] = useState("")
+    const [savedBlogs, setsavedBlogs] = useState<BlogsSaved[]>([])
+
+    async function fetchSavedBlogs() {
+        try {
+            const token = Cookies.get("token")
+            const { data } = await axios.get<BlogsSaved | any>(`${blog_service}/api/blog/blogs/saved/all`, { headers: { Authorization: `Bearer ${token}` } })
+            console.log(data)
+            setsavedBlogs(data.blogs)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     async function fetchUser() {
         try {
@@ -93,13 +127,17 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
 
     useEffect(() => {
         fetchUser();
-        fetchBlogs()
+        fetchSavedBlogs()
     }, [])
+
+    useEffect(() => {
+        fetchBlogs()
+    }, [searchQuery, category])
 
     async function fetchBlogs() {
         setBlogLoading(true)
         try {
-            const { data } = await axios.get<BlogApiResponse>(`${blog_service}/api/blog/blogs/allblogs`)
+            const { data } = await axios.get<BlogApiResponse | any>(`${blog_service}/api/blog/blogs/allblogs?searchQuery=${searchQuery}&category=${category}`)
             setBlog(data)
             console.log(data)
         } catch (error) {
@@ -110,7 +148,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     }
 
     return (
-        <AppContext.Provider value={{ user, loading, isAuth, setloading, setisAuth, setUser, logoutUser, blog, blogLoading }}>
+        <AppContext.Provider value={{ user, loading, isAuth, setloading, setisAuth, setUser, logoutUser, blog, blogLoading, searchQuery, setCategory, setSearchQuery, category, fetchBlogs, fetchSavedBlogs, setsavedBlogs, savedBlogs }}>
             <GoogleOAuthProvider clientId={`${process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || ""}`}>
                 <Toaster />
                 {children}

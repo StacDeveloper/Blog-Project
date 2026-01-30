@@ -15,7 +15,6 @@ import toast from 'react-hot-toast'
 
 const JoditEditor = dynamic(() => import('jodit-react'), { ssr: false })
 
-
 const BlogCategories = ["Technology", "Health", "Category Finance", "Travel", "Education", "Entertainment", "Animals", "United-Kingdom"]
 
 interface formData {

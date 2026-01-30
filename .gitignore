@@ -3,8 +3,6 @@ node_modules
 .env
 .env.local
 .env.*local
-.dockerignore
-dockerfile
 .vscode
 .next/
 # Next.js
