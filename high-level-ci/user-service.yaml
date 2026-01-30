@@ -1,0 +1,286 @@
+name: User Service CI/CD
+
+on:
+  push:
+    paths:
+      - "services/user-service/**"
+  workflow_dispatch:
+
+env:
+  AWS_REGION: eu-north-1
+  ECR_REPOSITORY: user-service
+  CLUSTER_NAME: user-service
+  DEPLOYMENT_NAME: user-service
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    continue-on-error: false
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+          cache-dependency-path: services/user-service/package-lock.json
+      
+      - name: Install dependencies
+        working-directory: services/user-service
+        run: npm ci
+      
+      - name: Run tests
+        working-directory: services/user-service
+        run: npm test
+        continue-on-error: false
+
+  build:
+    name: Build & Push
+    needs: test
+    runs-on: ubuntu-latest
+    continue-on-error: false
+    
+    permissions:
+      id-token: write
+      contents: read
+      security-events: write
+
+    outputs:
+      image-tag: ${{ steps.image-tag.outputs.tag }}
+      ecr-registry: ${{ steps.login-ecr.outputs.registry }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set image tag
+        id: image-tag
+        run: echo "tag=${{ github.sha }}" >> $GITHUB_OUTPUT
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+        
+      - name: Build Docker image
+        working-directory: services/user-service
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          IMAGE_TAG: ${{ steps.image-tag.outputs.tag }}
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ steps.image-tag.outputs.tag }}
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          severity: 'CRITICAL,HIGH'
+        continue-on-error: false
+
+      - name: Upload Trivy results to GitHub Security
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: 'trivy-results.sarif'
+
+      - name: Push image to ECR
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          IMAGE_TAG: ${{ steps.image-tag.outputs.tag }}
+        run: |
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+
+  deploy:
+    name: Deploy to EKS
+    needs: build
+    runs-on: ubuntu-latest
+    continue-on-error: false
+    
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Configure kubectl
+        run: |
+          aws eks update-kubeconfig --name ${{ env.CLUSTER_NAME }} --region ${{ env.AWS_REGION }}
+          kubectl version --client
+
+      - name: Update deployment image
+        env:
+          IMAGE_TAG: ${{ needs.build.outputs.image-tag }}
+          ECR_REGISTRY: ${{ needs.build.outputs.ecr-registry }}
+        run: |
+          kubectl set image deployment/${{ env.DEPLOYMENT_NAME }} \
+            ${{ env.DEPLOYMENT_NAME }}=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG \
+            --record
+
+      - name: Wait for rollout to complete
+        run: |
+          kubectl rollout status deployment/${{ env.DEPLOYMENT_NAME }} --timeout=5m
+        continue-on-error: false
+
+      - name: Verify deployment
+        run: |
+          echo "Checking deployment status..."
+          kubectl get deployment ${{ env.DEPLOYMENT_NAME }}
+          
+          echo "Checking pods..."
+          kubectl get pods -l app=${{ env.DEPLOYMENT_NAME }}
+          
+          READY_REPLICAS=$(kubectl get deployment ${{ env.DEPLOYMENT_NAME }} -o jsonpath='{.status.readyReplicas}')
+          DESIRED_REPLICAS=$(kubectl get deployment ${{ env.DEPLOYMENT_NAME }} -o jsonpath='{.spec.replicas}')
+          
+          if [ "$READY_REPLICAS" != "$DESIRED_REPLICAS" ]; then
+            echo "Deployment verification failed: $READY_REPLICAS/$DESIRED_REPLICAS replicas ready"
+            exit 1
+          fi
+          
+          echo "Deployment verified successfully: $READY_REPLICAS/$DESIRED_REPLICAS replicas ready"
+
+      - name: Get deployment info
+        if: success()
+        run: |
+          echo "Deployment successful!"
+          kubectl describe deployment ${{ env.DEPLOYMENT_NAME }}
+
+  notify:
+    name: Notify
+    needs: [test, build, deploy]
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+      - name: Determine workflow status
+        id: status
+        run: |
+          if [ "${{ needs.test.result }}" == "failure" ] || \
+             [ "${{ needs.build.result }}" == "failure" ] || \
+             [ "${{ needs.deploy.result }}" == "failure" ]; then
+            echo "status=failure" >> $GITHUB_OUTPUT
+            echo "color=#FF0000" >> $GITHUB_OUTPUT
+          elif [ "${{ needs.test.result }}" == "success" ] && \
+               [ "${{ needs.build.result }}" == "success" ] && \
+               [ "${{ needs.deploy.result }}" == "success" ]; then
+            echo "status=success" >> $GITHUB_OUTPUT
+            echo "color=#00FF00" >> $GITHUB_OUTPUT
+          else
+            echo "status=cancelled" >> $GITHUB_OUTPUT
+            echo "color=#FFA500" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Send Slack notification
+        if: always()
+        uses: slackapi/slack-github-action@v1.26.0
+        with:
+          payload: |
+            {
+              "text": "User Service CI/CD Pipeline ${{ steps.status.outputs.status }}",
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "🚀 User Service Deployment ${{ steps.status.outputs.status == 'success' && '✅' || '❌' }}"
+                  }
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Status:*\n${{ steps.status.outputs.status }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Branch:*\n${{ github.ref_name }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Commit:*\n${{ github.sha }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Author:*\n${{ github.actor }}"
+                    }
+                  ]
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Test:*\n${{ needs.test.result }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Build:*\n${{ needs.build.result }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Deploy:*\n${{ needs.deploy.result }}"
+                    }
+                  ]
+                },
+                {
+                  "type": "actions",
+                  "elements": [
+                    {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "View Workflow"
+                      },
+                      "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                    }
+                  ]
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+
+      - name: Send email notification on failure
+        if: steps.status.outputs.status == 'failure'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ secrets.MAIL_SERVER }}
+          server_port: ${{ secrets.MAIL_PORT }}
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: "❌ User Service CI/CD Failed - ${{ github.sha }}"
+          to: ${{ secrets.NOTIFICATION_EMAIL }}
+          from: "GitHub Actions <noreply@github.com>"
+          body: |
+            User Service CI/CD pipeline has failed.
+            
+            Repository: ${{ github.repository }}
+            Branch: ${{ github.ref_name }}
+            Commit: ${{ github.sha }}
+            Author: ${{ github.actor }}
+            
+            Test Status: ${{ needs.test.result }}
+            Build Status: ${{ needs.build.result }}
+            Deploy Status: ${{ needs.deploy.result }}
+            
+            View workflow: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

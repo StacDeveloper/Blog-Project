@@ -11,14 +11,16 @@ const Home = () => {
   useEffect(() => {
     if (!isAuth) {
       router.push("/login")
+    }else{
+      router.push("/blogs")
     }
   }, [isAuth])
   return (
-      <HomeLayout>
-        <div className=''>
-          {loading ? <Loading /> : <div className='container mx-auto px-4'></div>}
-        </div>
-      </HomeLayout>
+    <HomeLayout>
+      <div className=''>
+        {loading ? <Loading /> : <div className='container mx-auto px-4'></div>}
+      </div>
+    </HomeLayout>
   )
 }
 

@@ -5,13 +5,11 @@ node_modules
 # Kubernetes configs
 **/k8s/
 k8s/
-dockerfile
-.dockerignore
 node_modules
 .env
 .git
 .gitgignore
 .dockerignore
 .log
-dockerfile
+
 dist
